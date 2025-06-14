@@ -1,0 +1,5 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/siderolabs/talos/refs/heads/main/website/content/v1.10/schemas/config.schema.json
+machine:
+  kubelet:
+    extraArgs:
+      node-labels: ${labels}

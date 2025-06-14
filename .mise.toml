@@ -1,0 +1,11 @@
+[tools]
+kubectl = "latest"
+terraform = "latest"
+flux2 = "latest"
+talosctl = "latest"
+talhelper = "latest"
+[env]
+AWS_DEFAULT_PROFILE = 'kosh-private'
+AWS_PROFILE = 'kosh-private'
+AWS_EB_PROFILE = 'kosh-private'
+AWS_PROFILE_REGION = 'eu-central-1'

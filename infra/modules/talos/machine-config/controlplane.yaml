@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/siderolabs/talos/refs/heads/main/website/content/v1.10/schemas/config.schema.json
+machine:
+  certSANs:
+    - ${cluster_endpoint_ip}
+    - ${cluster_endpoint_hostname}
+  network:
+    interfaces:
+      - interface: eth0
+        vip:
+          ip: ${cluster_endpoint_ip}
+    extraHostEntries:
+      - ip: 127.0.0.1
+        aliases:
+          - ${cluster_endpoint_hostname}
+  features:
+    kubernetesTalosAPIAccess:
+      enabled: true
+      allowedRoles:
+        - os:reader
+        - os:admin
+        - os:etcd:backup
+      allowedKubernetesNamespaces:
+        - kube-system
+        - operator-talos

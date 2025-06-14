@@ -1,0 +1,7 @@
+creation_rules:
+  - path_regex: .*k8s.*ecrypted.yaml
+    encrypted_regex: ^(data|stringData)$
+    age: >-
+      age1ast5ce05rtn2u2vdvs722wch9p5yvhdpd7z5e300d4eh9s5r7qzssdnq30
+  - age: >-
+      age1ast5ce05rtn2u2vdvs722wch9p5yvhdpd7z5e300d4eh9s5r7qzssdnq30
