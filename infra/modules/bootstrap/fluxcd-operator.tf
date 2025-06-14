@@ -21,6 +21,30 @@ resource "kubernetes_namespace" "flux_system" {
     ignore_changes = [metadata]
   }
 }
+
+variable "sops_key_path" {
+  default     = "~/.config/sops/age/keys.txt"
+  description = "Path to the SOPS key file"
+  type        = string
+}
+
+resource "kubernetes_secret" "age" {
+  depends_on = [kubernetes_namespace.flux_system]
+  metadata {
+    name      = "sops-age"
+    namespace = "flux-system"
+    annotations = {
+      "reflector.v1.k8s.emberstack.com/reflection-allowed"            = "true"
+      "reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces" = "application.*"
+      "reflector.v1.k8s.emberstack.com/reflection-auto-enabled"       = "true"
+      "reflector.v1.k8s.emberstack.com/reflection-auto-namespaces"    = "application.*"
+    }
+  }
+  data = {
+    "keys.agekey" = file(pathexpand(var.sops_key_path))
+  }
+}
+
 resource "helm_release" "flux_operator" {
   depends_on = [kubernetes_namespace.flux_system]
 
