@@ -33,3 +33,7 @@ resource "local_sensitive_file" "talosconfig" {
   content  = module.talos-cluster.talos_config.talos_config
   filename = "${path.module}/../talosconfig.yaml"
 }
+
+module "flux-bootstrap" {
+  source = "./modules/bootstrap"
+}

@@ -21,6 +21,14 @@ terraform {
       source  = "hashicorp/local"
       version = "2.5.2"
     }
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+      version = "2.35.0"
+    }
+    helm = {
+      source  = "hashicorp/helm"
+      version = "2.16.1"
+    }
   }
 }
 
@@ -32,5 +40,22 @@ provider "proxmox" {
   ssh {
     agent       = true
     private_key = "/home/kosh/.ssh/id_ed25519"
+  }
+}
+
+
+provider "kubernetes" {
+  host = module.talos-cluster.kubeconfig_config.kubernetes_client_configuration.host
+  client_certificate = base64decode(module.talos-cluster.kubeconfig_config.kubernetes_client_configuration.client_certificate)
+  client_key = base64decode(module.talos-cluster.kubeconfig_config.kubernetes_client_configuration.client_key)
+  cluster_ca_certificate = base64decode(module.talos-cluster.kubeconfig_config.kubernetes_client_configuration.ca_certificate)
+}
+
+provider "helm" {
+  kubernetes {
+    host = module.talos-cluster.kubeconfig_config.kubernetes_client_configuration.host
+    client_certificate = base64decode(module.talos-cluster.kubeconfig_config.kubernetes_client_configuration.client_certificate)
+    client_key = base64decode(module.talos-cluster.kubeconfig_config.kubernetes_client_configuration.client_key)
+    cluster_ca_certificate = base64decode(module.talos-cluster.kubeconfig_config.kubernetes_client_configuration.ca_certificate)
   }
 }
