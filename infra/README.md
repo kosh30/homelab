@@ -6,6 +6,8 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1 |
+| <a name="requirement_helm"></a> [helm](#requirement\_helm) | 2.16.1 |
+| <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | 2.35.0 |
 | <a name="requirement_local"></a> [local](#requirement\_local) | 2.5.2 |
 | <a name="requirement_proxmox"></a> [proxmox](#requirement\_proxmox) | >= 0.71 |
 | <a name="requirement_sops"></a> [sops](#requirement\_sops) | >= 1 |
@@ -22,6 +24,7 @@
 
 | Name | Source | Version |
 |------|--------|---------|
+| <a name="module_flux-bootstrap"></a> [flux-bootstrap](#module\_flux-bootstrap) | ./modules/bootstrap | n/a |
 | <a name="module_talos-cluster"></a> [talos-cluster](#module\_talos-cluster) | ./modules/talos | n/a |
 
 ## Resources
