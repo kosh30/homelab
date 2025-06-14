@@ -70,6 +70,6 @@ resource "helm_release" "flux_instance" {
   ]
   set {
     name  = "distribution.version"
-    value = "=2.x"
+    value = "2.x"
   }
 }
