@@ -12,9 +12,9 @@ machine:
     topology.kubernetes.io/region: ${region}
     topology.kubernetes.io/zone: ${zone}
   kubelet:
-    clusterDNS:
-      - 169.254.2.53
-      - ${dns_server}
+#    clusterDNS:
+#      - 169.254.2.53
+#      - ${dns_server}
     nodeIP:
       validSubnets:
         - ${proxmox_subnet}
