@@ -1,5 +1,10 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/controlplaneio-fluxcd/charts/refs/heads/main/charts/flux-instance/values.schema.json
 instance:
+  cluster:
+    type: kubernetes
+  distribution:
+    registry: ghcr.io/controlplaneio-fluxcd
+    version: 2.x
   components:
     - source-controller
     - kustomize-controller
@@ -7,17 +12,17 @@ instance:
     - notification-controller
     - image-reflector-controller
     - image-automation-controller
-#  sync:
-#    kind: GitRepository
-#    url: "ssh://git@gitlab.com/devops_kosh/kubernetes/homelab.git"
-#    ref: "refs/heads/main"
-#    path: "clusters/homelab"
-#    pullSecret: "flux-system"
-#    provider: github
-#    interval: "10m"
-#    name: flux-system
   kustomize:
     patches:
+      - target:
+          kind: Kustomization
+        patch: |
+          - op: add
+            path: /spec/decryption
+            value:
+              provider: sops
+              secretRef:
+                name: sops-age
       - target:
           kind: Deployment
           name: "(kustomize-controller|helm-controller)"
