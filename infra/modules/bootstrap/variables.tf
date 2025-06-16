@@ -19,6 +19,14 @@ variable "git_path" {
   nullable    = false
 }
 
+variable "git_user" {
+  type = string
+}
+
+variable "git_password" {
+  type = string
+}
+
 variable "git_ref" {
   description = "Git branch or tag in the format refs/heads/main or refs/tags/v1.0.0"
   type        = string

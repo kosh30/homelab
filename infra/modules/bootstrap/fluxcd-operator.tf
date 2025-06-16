@@ -32,6 +32,18 @@ resource "kubernetes_secret" "age" {
   }
 }
 
+resource "kubernetes_secret" "git-auth" {
+  metadata {
+    name      = "git-token-auth"
+    namespace = "flux-system"
+  }
+
+  data = {
+    username = var.git_user
+    password = var.git_password
+  }
+}
+
 resource "helm_release" "flux_operator" {
   depends_on = [kubernetes_namespace.flux_system]
 
@@ -58,5 +70,39 @@ resource "helm_release" "flux_instance" {
   set {
     name  = "distribution.version"
     value = "2.x"
+  }
+
+  set {
+    name  = "instance.distribution.version"
+    value = var.flux_version
+  }
+  set {
+    name  = "instance.distribution.registry"
+    value = var.flux_registry
+  }
+
+  set {
+    name  = "instance.sync.kind"
+    value = "GitRepository"
+  }
+  set {
+    name  = "instance.sync.url"
+    value = var.git_url
+  }
+  set {
+    name  = "instance.sync.path"
+    value = var.git_path
+  }
+  set {
+    name  = "instance.sync.ref"
+    value = var.git_ref
+  }
+  set {
+    name  = "instance.sync.provider"
+    value = "generic"
+  }
+  set {
+    name  = "instance.sync.pullSecret"
+    value = "git-token-auth"
   }
 }
