@@ -62,3 +62,16 @@ output "gitlab_project_data" {
   sensitive = true
   value     = var.gitlab_project_id != 0 ? data.gitlab_project.by_id[0] : data.gitlab_project.by_namespace[0]
 }
+
+resource "gitlab_deploy_token" "gitlab-ro-token" {
+  project = local.gitlab_broject.id
+  name    = "flux-${var.cluster_name}-ro-token"
+  scopes = [
+    "read_repository"
+  ]
+}
+
+output "deploy_token" {
+  sensitive = true
+  value     = gitlab_deploy_token.gitlab-ro-token
+}

@@ -24,6 +24,7 @@ No modules.
 |------|------|
 | [gitlab_cluster_agent.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/cluster_agent) | resource |
 | [gitlab_deploy_key.fluxcd_bootstrap_key](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/deploy_key) | resource |
+| [gitlab_deploy_token.gitlab-ro-token](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/deploy_token) | resource |
 | [gitlab_repository_file.agent_config](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/repository_file) | resource |
 | [gitlab_project.by_id](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/data-sources/project) | data source |
 | [gitlab_project.by_namespace](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/data-sources/project) | data source |
@@ -42,5 +43,6 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_deploy_token"></a> [deploy\_token](#output\_deploy\_token) | n/a |
 | <a name="output_gitlab_project_data"></a> [gitlab\_project\_data](#output\_gitlab\_project\_data) | n/a |
 <!-- END_TF_DOCS -->
