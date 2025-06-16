@@ -52,7 +52,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_cluster"></a> [cluster](#input\_cluster) | Cluster configuration | <pre>object({<br/>    name                       = string<br/>    endpoint_ip                = string<br/>    endpoint_hostname          = string<br/>    endpoint_hostname_external = optional(string)<br/>    gateway                    = string<br/>    talos_version              = string<br/>    proxmox_cluster_name       = string<br/>    proxmox_network            = string<br/>    vlan_id                    = optional(number)<br/>  })</pre> | n/a | yes |
+| <a name="input_cluster"></a> [cluster](#input\_cluster) | Cluster configuration | <pre>object({<br/>    name                       = string<br/>    endpoint_ip                = string<br/>    endpoint_hostname          = string<br/>    endpoint_hostname_external = optional(string)<br/>    gateway                    = string<br/>    talos_version              = string<br/>    proxmox_cluster_name       = string<br/>    proxmox_network            = string<br/>    proxmox_endpoint           = string<br/>    vlan_id                    = optional(number)<br/>  })</pre> | n/a | yes |
 | <a name="input_image"></a> [image](#input\_image) | Talos image configuration | <pre>object({<br/>    factory_url       = optional(string, "https://factory.talos.dev")<br/>    schematic         = string<br/>    version           = string<br/>    update_schematic  = optional(string)<br/>    update_version    = optional(string)<br/>    arch              = optional(string, "amd64")<br/>    platform          = optional(string, "nocloud")<br/>    proxmox_datastore = optional(string, "local")<br/>  })</pre> | n/a | yes |
 | <a name="input_talos_nodes"></a> [talos\_nodes](#input\_talos\_nodes) | Configuration for cluster nodes | <pre>map(object({<br/>    machine_type       = string<br/>    cpu                = number<br/>    ram_dedicated      = number<br/>    data_disk_size     = optional(number, 20)<br/>    datastore_snippets = optional(string)<br/>    datastore_image    = optional(string)<br/>    datastore_rootfs   = optional(string)<br/>    igpu               = optional(bool, false)<br/>    ip                 = optional(string, "")<br/>    host_cidr          = optional(string, "24")<br/>    mac_address        = optional(string)<br/>    os_disk_size       = optional(number, 10)<br/>    proxmox_host_node  = string<br/>    update             = optional(bool, false)<br/>    vm_id              = optional(number)<br/>  }))</pre> | n/a | yes |
 
@@ -62,5 +62,6 @@ No modules.
 |------|-------------|
 | <a name="output_image_id"></a> [image\_id](#output\_image\_id) | n/a |
 | <a name="output_kubeconfig_config"></a> [kubeconfig\_config](#output\_kubeconfig\_config) | n/a |
+| <a name="output_talos-cluster"></a> [talos-cluster](#output\_talos-cluster) | n/a |
 | <a name="output_talos_config"></a> [talos\_config](#output\_talos\_config) | n/a |
 <!-- END_TF_DOCS -->

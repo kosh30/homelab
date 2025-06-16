@@ -7,6 +7,15 @@ instance:
     - notification-controller
     - image-reflector-controller
     - image-automation-controller
+#  sync:
+#    kind: GitRepository
+#    url: "ssh://git@gitlab.com/devops_kosh/kubernetes/homelab.git"
+#    ref: "refs/heads/main"
+#    path: "clusters/homelab"
+#    pullSecret: "flux-system"
+#    provider: github
+#    interval: "10m"
+#    name: flux-system
   kustomize:
     patches:
       - target:

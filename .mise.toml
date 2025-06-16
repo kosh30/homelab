@@ -4,6 +4,7 @@ terraform = "latest"
 flux2 = "latest"
 talosctl = "latest"
 talhelper = "latest"
+ansible = "latest"
 [env]
 AWS_DEFAULT_PROFILE = 'kosh-private'
 AWS_PROFILE = 'kosh-private'

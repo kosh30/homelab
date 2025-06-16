@@ -1,0 +1,16 @@
+apiVersion: fluxcd.controlplane.io/v1
+kind: FluxInstance
+metadata:
+  name: flux
+  namespace: flux-system
+spec:
+  distribution:
+    registry: ghcr.io/controlplaneio-fluxcd
+    version: 2.x
+  sync:
+    kind: GitRepository
+    url: "https://github.com/my-org/my-fleet.git"
+    ref: "refs/heads/main"
+    path: "kubernetes/cluster/homelab"
+    pullSecret: "flux-system"
+    provider: generic

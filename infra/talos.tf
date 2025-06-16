@@ -1,3 +1,13 @@
+
+
+resource "tls_private_key" "fluxcd" {
+  algorithm   = "ECDSA"
+  ecdsa_curve = "P256"
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
 module "talos-cluster" {
   source = "./modules/talos"
 
@@ -18,6 +28,7 @@ module "talos-cluster" {
     talos_version              = local.talos_version
     proxmox_cluster_name       = "pve"
     proxmox_network            = nonsensitive(local.proxmox_config.network)
+    proxmox_endpoint           = nonsensitive(local.proxmox_config.endpoint)
     vlan_id                    = 2
   }
 
@@ -34,6 +45,22 @@ resource "local_sensitive_file" "talosconfig" {
   filename = "${path.module}/../talosconfig.yaml"
 }
 
+module "gitlab" {
+  source                      = "./modules/gitlab"
+  gitlab_project_id           = tonumber(local.gitlab_config.project_id)
+  proxmox                     = local.proxmox_config
+  fluxcd_bootstrap_public_key = tls_private_key.fluxcd.public_key_openssh
+}
+
+output "gitlab" {
+  sensitive = true
+  value     = module.gitlab.gitlab_project_data
+}
+
 module "flux-bootstrap" {
-  source = "./modules/bootstrap"
+  source       = "./modules/bootstrap"
+  git_path     = "/kubernetes/cluster/${module.talos-cluster.talos-cluster.name}"
+  proxmox      = local.proxmox_config
+  cluster_name = module.talos-cluster.talos_config.cluster_name
+  git_url      = module.gitlab.gitlab_project_data.ssh_url_to_repo
 }

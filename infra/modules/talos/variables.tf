@@ -23,6 +23,7 @@ variable "cluster" {
     talos_version              = string
     proxmox_cluster_name       = string
     proxmox_network            = string
+    proxmox_endpoint           = string
     vlan_id                    = optional(number)
   })
 }

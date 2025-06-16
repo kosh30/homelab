@@ -12,7 +12,6 @@ terraform {
       source  = "bpg/proxmox"
       version = ">= 0.71"
     }
-
     sops = {
       source  = "carlpett/sops"
       version = ">= 1"
@@ -29,6 +28,16 @@ terraform {
       source  = "hashicorp/helm"
       version = ">= 2.16.1"
     }
+    tls = {
+      source  = "hashicorp/tls"
+      version = ">= 4.0.6"
+    }
+
+    gitlab = {
+      source  = "gitlabhq/gitlab"
+      version = ">= 18.0.0"
+    }
+
   }
 }
 
@@ -58,4 +67,13 @@ provider "helm" {
     client_key             = base64decode(module.talos-cluster.kubeconfig_config.kubernetes_client_configuration.client_key)
     cluster_ca_certificate = base64decode(module.talos-cluster.kubeconfig_config.kubernetes_client_configuration.ca_certificate)
   }
+}
+
+provider "tls" {
+
+}
+
+provider "gitlab" {
+  token    = local.gitlab_config.personal_token
+  base_url = "https://${local.gitlab_config.gitlab_host}"
 }
