@@ -62,5 +62,9 @@ module "flux-bootstrap" {
   git_path     = "/kubernetes/cluster/${module.talos-cluster.talos-cluster.name}"
   proxmox      = local.proxmox_config
   cluster_name = module.talos-cluster.talos_config.cluster_name
-  git_url      = "ssh://${replace(":","/", module.gitlab.gitlab_project_data.ssh_url_to_repo)}"
+  # git_url      = "ssh://${replace(":", "/", module.gitlab.gitlab_project_data.ssh_url_to_repo)}"
+  git_url      = module.gitlab.gitlab_project_data.http_url_to_repo
+  git_user     = module.gitlab.deploy_token.username
+  git_password = module.gitlab.deploy_token.token
+
 }
