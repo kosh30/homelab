@@ -17,7 +17,7 @@ data "talos_machine_configuration" "this" {
   machine_type     = each.value.machine_type
   machine_secrets  = talos_machine_secrets.this.machine_secrets
   config_patches = each.value.machine_type == "controlplane" ? [
-    templatefile("${path.module}/machine-config/common.yaml", {
+    templatefile("${path.module}/machine-config/common.yaml.tpl", {
       name                      = each.key
       cluster_endpoint_hostname = var.cluster.endpoint_hostname
       cluster_name              = var.cluster.name
@@ -34,7 +34,7 @@ data "talos_machine_configuration" "this" {
       cluster_endpoint_ip       = var.cluster.endpoint_ip
     })
     ] : [
-    templatefile("${path.module}/machine-config/common.yaml", {
+    templatefile("${path.module}/machine-config/common.yaml.tpl", {
       name                      = each.key
       cluster_endpoint_hostname = var.cluster.endpoint_hostname
       cluster_name              = var.cluster.name
