@@ -27,6 +27,7 @@ data "talos_machine_configuration" "this" {
       proxmox_subnet            = var.cluster.proxmox_network
       region                    = var.cluster.proxmox_cluster_name
       zone                      = each.value.proxmox_host_node
+      manifests                 = local.crds
     }),
     templatefile("${path.module}/machine-config/controlplane.yaml", {
       cluster_endpoint_hostname = var.cluster.endpoint_hostname
@@ -43,6 +44,7 @@ data "talos_machine_configuration" "this" {
       proxmox_subnet            = var.cluster.proxmox_network
       region                    = var.cluster.proxmox_cluster_name
       zone                      = each.value.proxmox_host_node
+      manifests                 = local.crds
     }),
     templatefile("${path.module}/machine-config/worker.yaml", {
       name                      = each.key
