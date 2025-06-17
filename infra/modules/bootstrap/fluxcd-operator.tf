@@ -21,8 +21,8 @@ resource "kubernetes_secret" "age" {
     name      = "sops-age"
     namespace = "flux-system"
     annotations = {
-      "reflector.v1.k8s.emberstack.com/reflection-allowed"            = "true"
-      "reflector.v1.k8s.emberstack.com/reflection-auto-enabled"       = "true"
+      "reflector.v1.k8s.emberstack.com/reflection-allowed"      = "true"
+      "reflector.v1.k8s.emberstack.com/reflection-auto-enabled" = "true"
     }
   }
   data = {
@@ -43,7 +43,7 @@ resource "kubernetes_secret" "git-auth" {
 }
 
 resource "helm_release" "flux_operator" {
-  depends_on = [kubernetes_namespace.flux_system]
+  depends_on = [kubernetes_namespace.flux_system, helm_release.coredns]
 
   name       = "flux-operator"
   namespace  = "flux-system"
@@ -56,14 +56,14 @@ resource "helm_release" "flux_operator" {
 # Bootstrap Flux Instance
 # ==========================================
 resource "helm_release" "flux_instance" {
-  depends_on = [helm_release.flux_operator]
+  depends_on = [helm_release.flux_operator, helm_release.coredns]
 
   name       = "flux-instance"
   namespace  = "flux-system"
   repository = "oci://ghcr.io/controlplaneio-fluxcd/charts"
   chart      = "flux-instance"
   values = [
-    file("${path.module}/../../../kubernetes/core/fluxcd/operator/values/components.yaml")
+    file("${path.module}/../../../kubernetes/main/apps/flux-system/operator/values/components.yaml")
   ]
   set {
     name  = "distribution.version"
