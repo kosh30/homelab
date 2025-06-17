@@ -35,7 +35,23 @@ gatewayAPI:
   xffNumTrustedHops: 1
 hubble:
   enabled: true
+  metrics:
+    enabled:
+      - dns:query
+      - drop
+      - tcp
+      - flow
+      - port-distribution
+      - icmp
+      - http
+    serviceMonitor:
+      enabled: true
+    dashboards:
+      enabled: true
   relay:
+    rollOutPods: true
+    enabled: true
+  ui:
     rollOutPods: true
     enabled: true
 ipam:
