@@ -62,5 +62,5 @@ data "talos_machine_configuration" "this" {
 resource "local_file" "review" {
   for_each = data.talos_machine_configuration.this
   filename = "./machine-config/${each.key}.yaml"
-  content = each.value.machine_configuration
+  content  = each.value.machine_configuration
 }
