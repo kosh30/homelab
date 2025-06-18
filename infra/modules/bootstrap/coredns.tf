@@ -5,7 +5,7 @@ resource "helm_release" "coredns" {
   create_namespace = "false"
   namespace        = "kube-system"
   name             = "coredns"
-  repository       = "oci://ghcr.io/coredns/charts/coredns"
+  repository       = "https://coredns.github.io/helm"
   chart            = "coredns"
 
   values = [

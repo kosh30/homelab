@@ -6,7 +6,13 @@ cluster:
     certSANs:
       - ${cluster_endpoint_ip}
       - ${cluster_endpoint_hostname}
-
+  network:
+    cni:
+      name: none
+    podSubnets:
+      - 10.244.0.0/16
+    serviceSubnets:
+      - 10.96.0.0/12
   controllerManager:
     extraArgs:
       bind-address: 0.0.0.0
@@ -32,12 +38,6 @@ cluster:
                   - maxSkew: 1
                     topologyKey: kubernetes.io/hostname
                     whenUnsatisfiable: ScheduleAnyway
-  externalCloudProvider:
-    enabled: true
-    manifests:
-%{ for manifest in manifests ~}
-      - ${manifest}
-%{ endfor ~}
 machine:
   kernel:
     modules:

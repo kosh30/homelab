@@ -50,6 +50,7 @@ locals {
   _controllers = { for k, v in local.controllers : k => merge(v, {
     vm_id        = lookup(v, "vm_id", index(keys(local.controllers), k) + 300),
     ip           = lookup(v, "ip", cidrhost(local.controller_network, index(keys(local.controllers), k) + 1)),
+    mac_address  = lookup(v, "mac_address", "${local.mac_prefix}:${local.controlplane_mac_suffix}:${format("%02d", index(keys(local.controllers), k) + 1)}"),
     host_cidr    = local.proxmox_network_cidr
     machine_type = "controlplane"
   }) }
@@ -57,6 +58,7 @@ locals {
   _workers = { for k, v in local.workers : k => merge(v, {
     vm_id        = lookup(v, "vm_id", index(keys(local.workers), k) + 400),
     ip           = lookup(v, "ip", cidrhost(local.worker_network, index(keys(local.workers), k) + 1)),
+    mac_address  = lookup(v, "mac_address", "${local.mac_prefix}:${local.worker_mac_suffix}:${format("%02d", index(keys(local.workers), k) + 1)}"),
     host_cidr    = local.proxmox_network_cidr
     machine_type = "worker"
   }) }

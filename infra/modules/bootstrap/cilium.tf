@@ -4,7 +4,7 @@ resource "helm_release" "cilium" {
   create_namespace = "false"
   namespace        = "kube-system"
   name             = "cilium"
-  repository       = "oci://ghcr.io/home-operations/charts-mirror/cilium"
+  repository       = "https://helm.cilium.io/"
   chart            = "cilium"
 
   values = [

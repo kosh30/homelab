@@ -37,7 +37,10 @@ terraform {
       source  = "gitlabhq/gitlab"
       version = ">= 18.0.0"
     }
-
+    kubectl = {
+      source  = "alekc/kubectl"
+      version = ">= 2.1.3"
+    }
   }
 }
 
@@ -67,6 +70,13 @@ provider "helm" {
     client_key             = base64decode(module.talos-cluster.kubeconfig_config.kubernetes_client_configuration.client_key)
     cluster_ca_certificate = base64decode(module.talos-cluster.kubeconfig_config.kubernetes_client_configuration.ca_certificate)
   }
+}
+
+provider "kubectl" {
+  host                   = module.talos-cluster.kubeconfig_config.kubernetes_client_configuration.host
+  client_certificate     = base64decode(module.talos-cluster.kubeconfig_config.kubernetes_client_configuration.client_certificate)
+  client_key             = base64decode(module.talos-cluster.kubeconfig_config.kubernetes_client_configuration.client_key)
+  cluster_ca_certificate = base64decode(module.talos-cluster.kubeconfig_config.kubernetes_client_configuration.ca_certificate)
 }
 
 provider "tls" {

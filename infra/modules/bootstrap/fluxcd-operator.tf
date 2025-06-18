@@ -56,7 +56,7 @@ resource "helm_release" "flux_operator" {
 # Bootstrap Flux Instance
 # ==========================================
 resource "helm_release" "flux_instance" {
-  depends_on = [helm_release.flux_operator, helm_release.coredns]
+  depends_on = [helm_release.flux_operator]
 
   name       = "flux-instance"
   namespace  = "flux-system"
