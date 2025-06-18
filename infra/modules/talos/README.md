@@ -18,6 +18,7 @@
 | Name | Version |
 |------|---------|
 | <a name="provider_http"></a> [http](#provider\_http) | 3.5.0 |
+| <a name="provider_local"></a> [local](#provider\_local) | 2.5.3 |
 | <a name="provider_proxmox"></a> [proxmox](#provider\_proxmox) | 0.78.1 |
 | <a name="provider_talos"></a> [talos](#provider\_talos) | 0.8.1 |
 | <a name="provider_time"></a> [time](#provider\_time) | 0.13.1 |
@@ -30,6 +31,7 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [local_file.review](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
 | [proxmox_virtual_environment_download_file.this](https://registry.terraform.io/providers/bpg/proxmox/latest/docs/resources/virtual_environment_download_file) | resource |
 | [proxmox_virtual_environment_file.controlplane_metadata](https://registry.terraform.io/providers/bpg/proxmox/latest/docs/resources/virtual_environment_file) | resource |
 | [proxmox_virtual_environment_file.worker_metadata](https://registry.terraform.io/providers/bpg/proxmox/latest/docs/resources/virtual_environment_file) | resource |
