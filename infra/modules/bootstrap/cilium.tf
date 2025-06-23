@@ -1,4 +1,5 @@
 resource "helm_release" "cilium" {
+  depends_on       = [kubernetes_namespace.global]
   cleanup_on_fail  = "true"
   timeout          = "360"
   create_namespace = "false"

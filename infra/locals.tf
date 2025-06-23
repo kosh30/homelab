@@ -1,6 +1,7 @@
 locals {
   proxmox_config          = yamldecode(data.sops_file.global_secret.raw).proxmox
   gitlab_config           = yamldecode(data.sops_file.global_secret.raw).gitlab
+  bitwarden_config        = yamldecode(data.sops_file.global_secret.raw).bitwarden
   talos_version           = var.talos_version
   talos_upgrade_version   = var.talos_upgrade_version != "" ? var.talos_upgrade_version : var.talos_version
   proxmox_network_cidr    = nonsensitive(split("/", local.proxmox_config.network)[1])

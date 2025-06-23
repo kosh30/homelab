@@ -1,4 +1,6 @@
 # bootstrap
+Modules order:
+    cilium -> coredns -> spegel -> cert-manager -> external-secrets -> flux-operator -> flux-instance
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -6,7 +8,8 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1 |
-| <a name="requirement_helm"></a> [helm](#requirement\_helm) | >= 2.16.1 |
+| <a name="requirement_helm"></a> [helm](#requirement\_helm) | ~> 2 |
+| <a name="requirement_http"></a> [http](#requirement\_http) | >= 3.4.5 |
 | <a name="requirement_kubectl"></a> [kubectl](#requirement\_kubectl) | >= 2.1.3 |
 | <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | >= 2.35.0 |
 | <a name="requirement_proxmox"></a> [proxmox](#requirement\_proxmox) | >= 0.71 |
@@ -16,6 +19,7 @@
 | Name | Version |
 |------|---------|
 | <a name="provider_helm"></a> [helm](#provider\_helm) | 2.17.0 |
+| <a name="provider_http"></a> [http](#provider\_http) | 3.5.0 |
 | <a name="provider_kubectl"></a> [kubectl](#provider\_kubectl) | 2.1.3 |
 | <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.37.1 |
 | <a name="provider_proxmox"></a> [proxmox](#provider\_proxmox) | 0.78.2 |
@@ -33,15 +37,19 @@ No modules.
 | [helm_release.flux_instance](https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release) | resource |
 | [helm_release.flux_operator](https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release) | resource |
 | [kubectl_manifest.apply_prometheus_operator_crds](https://registry.terraform.io/providers/alekc/kubectl/latest/docs/resources/manifest) | resource |
+| [kubectl_manifest.gateway_api_crds](https://registry.terraform.io/providers/alekc/kubectl/latest/docs/resources/manifest) | resource |
 | [kubernetes_namespace.flux_system](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/namespace) | resource |
+| [kubernetes_namespace.global](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/namespace) | resource |
 | [kubernetes_namespace.proxmox-csi-namespace](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/namespace) | resource |
 | [kubernetes_secret.age](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/secret) | resource |
+| [kubernetes_secret.bitwarden](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/secret) | resource |
 | [kubernetes_secret.git-auth](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/secret) | resource |
 | [kubernetes_secret.proxmox-csi-plugin-secret](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/secret) | resource |
 | [proxmox_virtual_environment_role.csi-role](https://registry.terraform.io/providers/bpg/proxmox/latest/docs/resources/virtual_environment_role) | resource |
 | [proxmox_virtual_environment_user.csi-user](https://registry.terraform.io/providers/bpg/proxmox/latest/docs/resources/virtual_environment_user) | resource |
 | [proxmox_virtual_environment_user_token.proxmox-csi-user-token](https://registry.terraform.io/providers/bpg/proxmox/latest/docs/resources/virtual_environment_user_token) | resource |
 | [helm_template.prometheus_operator_crds](https://registry.terraform.io/providers/hashicorp/helm/latest/docs/data-sources/template) | data source |
+| [http_http.gateway_api_crds](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
 | [kubectl_file_documents.prometheus_operator_crds](https://registry.terraform.io/providers/alekc/kubectl/latest/docs/data-sources/file_documents) | data source |
 
 ## Inputs

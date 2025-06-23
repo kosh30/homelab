@@ -65,6 +65,7 @@ resource "helm_release" "flux_instance" {
   values = [
     file("${path.module}/../../../kubernetes/main/apps/flux-system/instance/app/helm/values.yaml")
   ]
+
   set {
     name  = "distribution.version"
     value = "2.x"
@@ -74,6 +75,7 @@ resource "helm_release" "flux_instance" {
     name  = "instance.distribution.version"
     value = var.flux_version
   }
+
   set {
     name  = "instance.distribution.registry"
     value = var.flux_registry
@@ -83,22 +85,27 @@ resource "helm_release" "flux_instance" {
     name  = "instance.sync.kind"
     value = "GitRepository"
   }
+
   set {
     name  = "instance.sync.url"
     value = var.git_url
   }
+
   set {
     name  = "instance.sync.path"
     value = var.git_path
   }
+
   set {
     name  = "instance.sync.ref"
     value = var.git_ref
   }
+
   set {
     name  = "instance.sync.provider"
     value = "generic"
   }
+
   set {
     name  = "instance.sync.pullSecret"
     value = "git-token-auth"

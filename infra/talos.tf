@@ -66,5 +66,6 @@ module "flux-bootstrap" {
   git_url      = module.gitlab.gitlab_project_data.http_url_to_repo
   git_user     = module.gitlab.deploy_token.username
   git_password = module.gitlab.deploy_token.token
+  bitwarden    = local.bitwarden_config
 
 }

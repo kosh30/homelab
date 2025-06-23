@@ -7,7 +7,7 @@
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1 |
 | <a name="requirement_gitlab"></a> [gitlab](#requirement\_gitlab) | >= 18.0.0 |
-| <a name="requirement_helm"></a> [helm](#requirement\_helm) | >= 2.16.1 |
+| <a name="requirement_helm"></a> [helm](#requirement\_helm) | ~> 2 |
 | <a name="requirement_kubectl"></a> [kubectl](#requirement\_kubectl) | >= 2.1.3 |
 | <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | >= 2.35.0 |
 | <a name="requirement_local"></a> [local](#requirement\_local) | >= 2.5.2 |

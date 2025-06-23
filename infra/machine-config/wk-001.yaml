@@ -1,0 +1,101 @@
+version: v1alpha1
+debug: false
+persist: true
+machine:
+    type: worker
+    token: l6w911.klacrqyg01m1w4u7
+    ca:
+        crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJQekNCOHFBREFnRUNBaEVBb2taZDJxWnNCb2g1T2dESzJydlllakFGQmdNclpYQXdFREVPTUF3R0ExVUUKQ2hNRmRHRnNiM013SGhjTk1qVXdOakU0TVRFeU1qSTVXaGNOTXpVd05qRTJNVEV5TWpJNVdqQVFNUTR3REFZRApWUVFLRXdWMFlXeHZjekFxTUFVR0F5dGxjQU1oQUxBM1p4M2hIais5Z1d3SjBMWlZqN2NoRkZtV0puVkRuMzdBCkowNk5nMENWbzJFd1h6QU9CZ05WSFE4QkFmOEVCQU1DQW9Rd0hRWURWUjBsQkJZd0ZBWUlLd1lCQlFVSEF3RUcKQ0NzR0FRVUZCd01DTUE4R0ExVWRFd0VCL3dRRk1BTUJBZjh3SFFZRFZSME9CQllFRkFSRDAvaEdYbjAxRWhTaAo5UjBFaW9oeFdiR3hNQVVHQXl0bGNBTkJBQmNlUTc3ZHNXWUdhVG85MTlBUlFvbnF2ZGovamRnRy91YzdGNmhMCjY3ZmgzYVBTNTR4Q3kzei9zcWxUQkdhbUprTUxMV0dxczlGWEJWZlBJOGdrUWdNPQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+        key: ""
+    certSANs: []
+    kubelet:
+        image: ghcr.io/siderolabs/kubelet:v1.33.0
+        extraArgs:
+            node-labels: node-pool=worker
+        defaultRuntimeSeccompProfileEnabled: true
+        nodeIP:
+            validSubnets:
+                - 192.168.96.0/22
+        disableManifestsDirectory: true
+    network:
+        hostname: wk-001
+        interfaces:
+            - interface: dummy0
+              addresses:
+                - 169.254.2.53/32
+    install:
+        disk: /dev/sda
+        image: ghcr.io/siderolabs/installer:v1.10.0
+        wipe: true
+    features:
+        rbac: true
+        stableHostname: true
+        apidCheckExtKeyUsage: true
+        diskQuotaSupport: true
+        kubePrism:
+            enabled: true
+            port: 7445
+        hostDNS:
+            enabled: true
+            forwardKubeDNSToHost: true
+    kernel:
+        modules:
+            - name: zfs
+    nodeLabels:
+        topology.kubernetes.io/region: pve
+        topology.kubernetes.io/zone: pve01
+cluster:
+    id: GnViCMdUgctBbB0sezPyxzEHEflvPFWxjfLpPH1_QF8=
+    secret: o8UXGbpF4gwBw7DCSVe46v6DSFwVbkdd5ftQQSYbU1k=
+    controlPlane:
+        endpoint: https://api.cluster.local:6443
+    clusterName: home-cluster
+    network:
+        cni:
+            name: none
+        dnsDomain: cluster.local
+        podSubnets:
+            - 10.244.0.0/16
+        serviceSubnets:
+            - 10.96.0.0/12
+    token: edgjuz.ti3gceosrejqzhj1
+    ca:
+        crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJpRENDQVMrZ0F3SUJBZ0lRUDdDdjhTbkVQRHhqZjc0NHdEb2pYVEFLQmdncWhrak9QUVFEQWpBVk1STXcKRVFZRFZRUUtFd3ByZFdKbGNtNWxkR1Z6TUI0WERUSTFNRFl4T0RFeE1qSXlPVm9YRFRNMU1EWXhOakV4TWpJeQpPVm93RlRFVE1CRUdBMVVFQ2hNS2EzVmlaWEp1WlhSbGN6QlpNQk1HQnlxR1NNNDlBZ0VHQ0NxR1NNNDlBd0VICkEwSUFCQnArTXZaZFhVTTY5VU15cDJWRi8rRkd5UEFHcEVUNno2Q3dobW1MejhXTlEyNnIxVnhPNCtGU2xySGoKRnROMzBNcnBDQWQ1Y3dOUzlnVVVpNis2NVZXallUQmZNQTRHQTFVZER3RUIvd1FFQXdJQ2hEQWRCZ05WSFNVRQpGakFVQmdnckJnRUZCUWNEQVFZSUt3WUJCUVVIQXdJd0R3WURWUjBUQVFIL0JBVXdBd0VCL3pBZEJnTlZIUTRFCkZnUVUzRDZpNnFpSUdEdy9EZmZYMnQ3NGVkb0paU0F3Q2dZSUtvWkl6ajBFQXdJRFJ3QXdSQUlnTHFuZVFaajYKanFOdzlnVGM0WWFMWkhsRjQ4TEdSYmhTSWVkL1prVWpLcWdDSUN5SXh0emJFUFhnNVFQS0VYcVR0T0RBTzVORgorRnBrYlZJNTRVUFpLQnpqCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+        key: ""
+    apiServer:
+        certSANs:
+            - 192.168.96.10
+            - api.cluster.local
+    controllerManager:
+        extraArgs:
+            bind-address: 0.0.0.0
+    proxy:
+        disabled: true
+    scheduler:
+        extraArgs:
+            bind-address: 0.0.0.0
+        config:
+            apiVersion: kubescheduler.config.k8s.io/v1
+            kind: KubeSchedulerConfiguration
+            profiles:
+                - pluginConfig:
+                    - args:
+                        defaultConstraints:
+                            - maxSkew: 1
+                              topologyKey: kubernetes.io/hostname
+                              whenUnsatisfiable: ScheduleAnyway
+                        defaultingType: List
+                      name: PodTopologySpread
+                  plugins:
+                    score:
+                        disabled:
+                            - name: ImageLocality
+                  schedulerName: default-scheduler
+    discovery:
+        enabled: true
+        registries:
+            kubernetes:
+                disabled: true
+            service: {}
+    coreDNS:
+        disabled: true
