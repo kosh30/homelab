@@ -63,7 +63,7 @@ resource "helm_release" "flux_instance" {
   repository = "oci://ghcr.io/controlplaneio-fluxcd/charts"
   chart      = "flux-instance"
   values = [
-    file("${path.module}/../../../kubernetes/main/apps/flux-system/operator/values/components.yaml")
+    file("${path.module}/../../../kubernetes/main/apps/flux-system/instance/app/helm/values.yaml")
   ]
   set {
     name  = "distribution.version"
