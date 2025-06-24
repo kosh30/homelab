@@ -56,6 +56,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_bitwarden"></a> [bitwarden](#input\_bitwarden) | n/a | <pre>object({<br/>    token          = string<br/>    projectID      = string<br/>    organizationID = string<br/>  })</pre> | n/a | yes |
 | <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | n/a | `string` | `"k8s"` | no |
 | <a name="input_flux_registry"></a> [flux\_registry](#input\_flux\_registry) | Flux distribution registry | `string` | `"ghcr.io/fluxcd"` | no |
 | <a name="input_flux_version"></a> [flux\_version](#input\_flux\_version) | Flux version semver range | `string` | `"2.x"` | no |
