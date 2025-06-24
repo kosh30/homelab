@@ -33,3 +33,8 @@ spec:
       name: sops-age
   targetNamespace: *namespace
   timeout: 15m
+  postBuild:
+    substituteFrom:
+      - kind: Secret
+        name: bitwarden
+        optional: true
