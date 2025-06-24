@@ -1,7 +1,8 @@
 locals {
   namespcaces = [
     "external-secrets",
-    "network"
+    "network",
+    "cert-manager"
   ]
 }
 
