@@ -7,8 +7,8 @@ metadata:
 spec:
   allowFirstLastIPs: "No"
   blocks:
-    - start: 192.168.97.30
-      stop: 192.168.97.100
+    - cidr: 192.168.96.0/22
+    - cidr: ::ffff:192.168.96.0/120 # IPv4-mapped IPv6
 ---
 # yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/cilium.io/ciliuml2announcementpolicy_v2alpha1.json
 apiVersion: cilium.io/v2alpha1
