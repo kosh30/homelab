@@ -33,3 +33,10 @@ resource "kubectl_manifest" "gateway_api_crds" {
   count     = length(local.gateway_api_crds_urls)
   yaml_body = data.http.gateway_api_crds[count.index].body
 }
+
+resource "helm_release" "gateway-api-crds" {
+  chart        = "gateway-api-crds"
+  name         = "gateway-api-crds"
+  repository   = "https://charts.portefaix.xyz"
+  force_update = true
+}
