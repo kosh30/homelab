@@ -7,7 +7,6 @@ metadata:
 spec:
   allowFirstLastIPs: "No"
   blocks:
-    - cidr: ::ffff:192.168.97.0/120 # IPv4-mapped IPv6
     - start: 192.168.97.30
       stop: 192.168.97.100
 ---
