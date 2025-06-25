@@ -69,3 +69,25 @@ module "flux-bootstrap" {
   bitwarden    = local.bitwarden_config
 
 }
+
+
+resource "local_file" "bgb_config" {
+  filename = "${path.module}/../.local/bgb_config.conf"
+  content  = <<EOF
+router bgp 64513
+  bgp router-id 192.168.96.1
+  no bgp ebgp-requires-policy
+
+  neighbor k8s peer-group
+  neighbor k8s remote-as 64514
+  %{for k, v in local.vms}
+  neighbor ${v.ip} peer-group k8s
+  %{endfor}
+  address-family ipv4 unicast
+  neighbor k8s next-hop-self
+  neighbor k8s soft-reconfiguration inbound
+  exit-address-family
+exit
+EOF
+
+}

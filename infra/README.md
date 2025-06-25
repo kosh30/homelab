@@ -36,6 +36,7 @@
 
 | Name | Type |
 |------|------|
+| [local_file.bgb_config](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
 | [local_sensitive_file.kubeconfig](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/sensitive_file) | resource |
 | [local_sensitive_file.talosconfig](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/sensitive_file) | resource |
 | [tls_private_key.fluxcd](https://registry.terraform.io/providers/hashicorp/tls/latest/docs/resources/private_key) | resource |
