@@ -6,3 +6,4 @@ resources:
   - ./external-secrets
   - ./flux-system
   - ./network
+  - ./csi-proxmox
