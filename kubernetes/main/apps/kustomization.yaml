@@ -7,3 +7,4 @@ resources:
   - ./flux-system
   - ./network
   - ./csi-proxmox
+  - ./observability
