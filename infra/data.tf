@@ -80,11 +80,6 @@ output "vm_node_assignments" {
   value = local.vm_storage_map
 }
 
-data "cloudflare_zero_trust_tunnel_cloudflared_token" "this" {
-  account_id = local.cloudflare_config.tunnel_account
-  tunnel_id  = local.cloudflare_config.tunnel_id
-}
-
 output "cloudflare_token" {
   value = data.cloudflare_zero_trust_tunnel_cloudflared_token.this.token
 }

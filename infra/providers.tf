@@ -46,6 +46,12 @@ terraform {
       source  = "cloudflare/cloudflare"
       version = "~> 5.6.0"
     }
+
+    bitwarden = {
+      source  = "maxlaverse/bitwarden"
+      version = ">= 0.13.6"
+    }
+
   }
 }
 
@@ -96,4 +102,11 @@ provider "gitlab" {
 
 provider "cloudflare" {
   api_token = local.cloudflare_config.main_token
+}
+
+provider "bitwarden" {
+  access_token = local.bitwarden_config.token
+  experimental {
+    embedded_client = true
+  }
 }
