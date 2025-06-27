@@ -41,6 +41,11 @@ terraform {
       source  = "alekc/kubectl"
       version = ">= 2.1.3"
     }
+
+    cloudflare = {
+      source  = "cloudflare/cloudflare"
+      version = "~> 5.6.0"
+    }
   }
 }
 
@@ -87,4 +92,8 @@ provider "tls" {
 provider "gitlab" {
   token    = local.gitlab_config.personal_token
   base_url = "https://${local.gitlab_config.gitlab_host}"
+}
+
+provider "cloudflare" {
+  api_token = local.cloudflare_config.main_token
 }
