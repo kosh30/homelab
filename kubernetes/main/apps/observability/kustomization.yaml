@@ -6,4 +6,4 @@ namespace: observability
 components:
   - ../../../components/common
 resources:
-  - ./gatus
+  - ./gatus/ks.yaml
