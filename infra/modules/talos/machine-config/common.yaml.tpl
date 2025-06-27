@@ -43,6 +43,7 @@ machine:
     modules:
       - name: zfs
   nodeLabels:
+    node.cloudprovider.kubernetes.io/platform: nocloud
     topology.kubernetes.io/region: ${region}
     topology.kubernetes.io/zone: ${zone}
   kubelet:
