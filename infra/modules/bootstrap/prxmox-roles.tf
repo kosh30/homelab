@@ -48,7 +48,7 @@ resource "kubernetes_secret" "proxmox-csi-plugin-secret" {
   data = {
     "config.yaml" = <<EOF
 clusters:
-- url: "${var.proxmox.endpoint}/api2/json"
+- url: "${var.proxmox.endpoint}api2/json"
   insecure: true
   token_id: "${proxmox_virtual_environment_user_token.proxmox-csi-user-token.id}"
   token_secret: "${element(split("=", proxmox_virtual_environment_user_token.proxmox-csi-user-token.value), length(split("=", proxmox_virtual_environment_user_token.proxmox-csi-user-token.value)) - 1)}"
