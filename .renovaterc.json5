@@ -3,7 +3,7 @@
   extends: [
     "config:recommended",
     "docker:enableMajor",
-    "helpers:pinGitHubActionDigests",
+//    "helpers:pinGitHubActionDigests",
     ":automergeBranch",
     ":dependencyDashboard",
     ":disableRateLimiting",
@@ -70,15 +70,15 @@
         commitMessageTopic: "{{{groupName}}} group",
       },
     },
-    {
-      description: "Auto-merge GitHub Actions",
-      matchManagers: ["github-actions"],
-      automerge: true,
-      automergeType: "branch",
-      matchUpdateTypes: ["minor", "patch", "digest"],
-      minimumReleaseAge: "3 days",
-      ignoreTests: true,
-    },
+//    {
+//      description: "Auto-merge GitHub Actions",
+//      matchManagers: ["github-actions"],
+//      automerge: true,
+//      automergeType: "branch",
+//      matchUpdateTypes: ["minor", "patch", "digest"],
+//      minimumReleaseAge: "3 days",
+//      ignoreTests: true,
+//    },
     {
       description: "Auto-merge Mise Tools",
       matchManagers: ["mise"],
@@ -118,12 +118,12 @@
       semanticCommitScope: "helm",
       commitMessageTopic: "chart {{depName}}",
     },
-    {
-      matchManagers: ["github-actions"],
-      semanticCommitType: "ci",
-      semanticCommitScope: "github-action",
-      commitMessageTopic: "action {{depName}}",
-    },
+//    {
+//      matchManagers: ["github-actions"],
+//      semanticCommitType: "ci",
+//      semanticCommitScope: "github-action",
+//      commitMessageTopic: "action {{depName}}",
+//    },
     {
       matchDatasources: ["github-releases"],
       semanticCommitScope: "github-release",
@@ -154,10 +154,10 @@
       matchDatasources: ["helm"],
       addLabels: ["renovate/helm"],
     },
-    {
-      matchManagers: ["github-actions"],
-      addLabels: ["renovate/github-action"],
-    },
+//    {
+//      matchManagers: ["github-actions"],
+//      addLabels: ["renovate/github-action"],
+//    },
     {
       matchDatasources: ["github-releases"],
       addLabels: ["renovate/github-release"],
