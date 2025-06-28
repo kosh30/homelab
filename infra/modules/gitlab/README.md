@@ -12,7 +12,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_gitlab"></a> [gitlab](#provider\_gitlab) | 18.0.0 |
+| <a name="provider_gitlab"></a> [gitlab](#provider\_gitlab) | 18.1.1 |
 
 ## Modules
 

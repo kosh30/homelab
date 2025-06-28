@@ -66,48 +66,41 @@ resource "helm_release" "flux_instance" {
     file("${path.module}/../../../kubernetes/main/apps/flux-system/instance/app/helm/values.yaml")
   ]
 
-  set {
-    name  = "distribution.version"
-    value = "2.x"
-  }
-
-  set {
-    name  = "instance.distribution.version"
-    value = var.flux_version
-  }
-
-  set {
-    name  = "instance.distribution.registry"
-    value = var.flux_registry
-  }
-
-  set {
-    name  = "instance.sync.kind"
-    value = "GitRepository"
-  }
-
-  set {
-    name  = "instance.sync.url"
-    value = var.git_url
-  }
-
-  set {
-    name  = "instance.sync.path"
-    value = var.git_path
-  }
-
-  set {
-    name  = "instance.sync.ref"
-    value = var.git_ref
-  }
-
-  set {
-    name  = "instance.sync.provider"
-    value = "generic"
-  }
-
-  set {
-    name  = "instance.sync.pullSecret"
-    value = "git-token-auth"
-  }
+  set = [
+    {
+      name  = "distribution.version"
+      value = "2.x"
+    },
+    {
+      name  = "instance.distribution.version"
+      value = var.flux_version
+    },
+    {
+      name  = "instance.distribution.registry"
+      value = var.flux_registry
+    },
+    {
+      name  = "instance.sync.kind"
+      value = "GitRepository"
+    },
+    {
+      name  = "instance.sync.url"
+      value = var.git_url
+    },
+    {
+      name  = "instance.sync.path"
+      value = var.git_path
+    },
+    {
+      name  = "instance.sync.ref"
+      value = var.git_ref
+    },
+    {
+      name  = "instance.sync.provider"
+      value = "generic"
+    },
+    {
+      name  = "instance.sync.pullSecret"
+      value = "git-token-auth"
+  }]
 }

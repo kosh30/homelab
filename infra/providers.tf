@@ -26,7 +26,7 @@ terraform {
     }
     helm = {
       source  = "hashicorp/helm"
-      version = "~> 2"
+      version = ">= 2"
     }
     tls = {
       source  = "hashicorp/tls"
@@ -81,7 +81,7 @@ provider "kubernetes" {
 
 provider "helm" {
 
-  kubernetes {
+  kubernetes = {
     host                   = module.talos-cluster.kubeconfig_config.kubernetes_client_configuration.host
     client_certificate     = base64decode(module.talos-cluster.kubeconfig_config.kubernetes_client_configuration.client_certificate)
     client_key             = base64decode(module.talos-cluster.kubeconfig_config.kubernetes_client_configuration.client_key)
