@@ -9,7 +9,7 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  interval: 1h
+  interval: 2h
   path: ./kubernetes/main/apps/kube-system/reloader/app
   prune: true
   retryInterval: 2m

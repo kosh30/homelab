@@ -6,7 +6,7 @@ metadata:
   name: proxmox-csi
   namespace: csi-proxmox
 spec:
-  interval: 1h
+  interval: 2h
   layerSelector:
     mediaType: "application/vnd.cncf.helm.chart.content.v1.tar+gzip"
     operation: copy
@@ -21,7 +21,7 @@ metadata:
   name: csi-proxmox
   namespace: csi-proxmox
 spec:
-  interval: 5m
+  interval: 2h
   chartRef:
     kind: OCIRepository
     name: proxmox-csi

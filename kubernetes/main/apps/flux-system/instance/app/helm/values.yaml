@@ -20,7 +20,7 @@ instance:
     pullSecret: git-token-auth
     ref: refs/heads/main
     url: https://gitlab.com/devops_kosh/kubernetes/homelab.git
-    interval: 1h
+    interval: 2h
   commonMetadata:
     labels:
       app.kubernetes.io/name: flux
