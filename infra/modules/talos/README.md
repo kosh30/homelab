@@ -9,7 +9,7 @@
 | <a name="requirement_http"></a> [http](#requirement\_http) | >=3.4.5 |
 | <a name="requirement_local"></a> [local](#requirement\_local) | >=2.5.2 |
 | <a name="requirement_null"></a> [null](#requirement\_null) | >=3.2.3 |
-| <a name="requirement_proxmox"></a> [proxmox](#requirement\_proxmox) | >=0.66.1 |
+| <a name="requirement_proxmox"></a> [proxmox](#requirement\_proxmox) | >= 0.66.1 |
 | <a name="requirement_talos"></a> [talos](#requirement\_talos) | >=0.6.0 |
 | <a name="requirement_time"></a> [time](#requirement\_time) | >=0.13.1 |
 
@@ -19,7 +19,7 @@
 |------|---------|
 | <a name="provider_http"></a> [http](#provider\_http) | 3.5.0 |
 | <a name="provider_local"></a> [local](#provider\_local) | 2.5.3 |
-| <a name="provider_proxmox"></a> [proxmox](#provider\_proxmox) | 0.78.1 |
+| <a name="provider_proxmox"></a> [proxmox](#provider\_proxmox) | 0.78.2 |
 | <a name="provider_talos"></a> [talos](#provider\_talos) | 0.8.1 |
 | <a name="provider_time"></a> [time](#provider\_time) | 0.13.1 |
 
