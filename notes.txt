@@ -1,1 +1,12 @@
- theila dashboard
+todos:
+    extract terraform bitwarden-secrets to separate module
+
+things to setup :
+    theila dashboard
+    authelia?
+
+
+requirements:
+    authentic:
+        dragonfly (redis)
+        postgres
