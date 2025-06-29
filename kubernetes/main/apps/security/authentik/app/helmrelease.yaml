@@ -60,7 +60,7 @@ spec:
         host: authentik-dragonfly
     server:
       autoscaling:
-        enabled: true
+        enabled: false
         minReplicas: 1
       resources:
         requests:
@@ -74,7 +74,7 @@ spec:
             enabled: true
     worker:
       autoscaling:
-        enabled: true
+        enabled: false
         minReplicas: 1
       resources:
         requests:
