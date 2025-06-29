@@ -17,31 +17,31 @@ locals {
 
   controllers = {
     "ctrl-001" = {
-      cpu           = 2
-      ram_dedicated = 4096
+      cpu           = 1
+      ram_dedicated = 3072
     }
-    "ctrl-002" = {
-      cpu           = 2
-      ram_dedicated = 4096
-    }
-    "ctrl-003" = {
-      cpu           = 2
-      ram_dedicated = 4096
-    }
+    # "ctrl-002" = {
+    #   cpu           = 1
+    #   ram_dedicated = 3072
+    # }
+    # "ctrl-003" = {
+    #   cpu           = 1
+    #   ram_dedicated = 3072
+    # }
   }
 
   workers = {
     "wk-001" = {
-      cpu           = 2
-      ram_dedicated = 4096
+      cpu           = 6
+      ram_dedicated = 24576
     }
-    "wk-002" = {
-      cpu           = 2
-      ram_dedicated = 4096
-    }
-    "wk-003" = {
-      cpu           = 2
-      ram_dedicated = 4096
-    }
+    # "wk-002" = {
+    #   cpu           = 2
+    #   ram_dedicated = 4096
+    # }
+    # "wk-003" = {
+    #   cpu           = 2
+    #   ram_dedicated = 4096
+    # }
   }
 }
