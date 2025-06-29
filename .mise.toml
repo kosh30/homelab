@@ -6,7 +6,8 @@ talosctl = "latest"
 talhelper = "latest"
 ansible = "latest"
 "pipx:flux-local" = "latest"
-python = "3.12"
+python = "3.13"
+node = "20"
 [env]
 AWS_DEFAULT_PROFILE = 'kosh-private'
 AWS_PROFILE = 'kosh-private'
