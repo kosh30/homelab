@@ -28,7 +28,7 @@ spec:
       metadata:
         labels:
           app.kubernetes.io/name: ${APP}-crunchy-postgres
-      replicas: 3 # One per node
+      replicas: 1 # One per node
       dataVolumeClaimSpec:
         storageClassName: proxmox-data
         accessModes: ["ReadWriteOnce"]
