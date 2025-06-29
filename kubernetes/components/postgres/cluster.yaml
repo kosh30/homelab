@@ -17,7 +17,7 @@ spec:
             memory: 512M
   patroni: # turn on sync writes to at least 1 other replica
     dynamicConfiguration:
-      synchronous_mode: true
+      synchronous_mode: false
       postgresql:
         max_wal_size: 5GB
         synchronous_commit: "on"
@@ -35,13 +35,13 @@ spec:
         resources:
           requests:
             storage: 6Gi
-      topologySpreadConstraints:
-        - maxSkew: 1
-          topologyKey: "kubernetes.io/hostname"
-          whenUnsatisfiable: "DoNotSchedule"
-          labelSelector:
-            matchLabels:
-              postgres-operator.crunchydata.com/cluster: *name
+#      topologySpreadConstraints:
+#        - maxSkew: 1
+#          topologyKey: "kubernetes.io/hostname"
+#          whenUnsatisfiable: "DoNotSchedule"
+#          labelSelector:
+#            matchLabels:
+#              postgres-operator.crunchydata.com/cluster: *name
   users:
     # Superuser
     - name: "postgres"
@@ -107,7 +107,7 @@ spec:
   proxy:
     pgBouncer:
       port: 5432
-      # replicas: 1
+      replicas: 1
       config:
         global:
           pool_mode: ${POOL_MODE:=session}
