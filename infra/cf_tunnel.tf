@@ -52,3 +52,32 @@ resource "bitwarden_secret" "flux" {
     FLUX_GITLAB_WEBHOOK_TOKEN = random_string.gitlab_token.result
   })
 }
+
+resource "random_password" "authentik_bootstrap_password" {
+  length  = 16
+  special = true
+}
+
+resource "random_password" "authentik_bootstrap_token" {
+  length  = 64
+  special = true
+}
+
+resource "random_password" "authentik_secret_key" {
+  length = 64
+}
+
+
+resource "bitwarden_secret" "authentik" {
+  note            = "authentik secrets"
+  project_id      = local.bitwarden_config.projectID
+  organization_id = local.bitwarden_config.organizationID
+
+  key = "authentik"
+  value = jsonencode({
+    AUTHENTIK_BOOTSTRAP_EMAIL : local.authentik_config.AUTHENTIK_BOOTSTRAP_EMAIL
+    AUTHENTIK_BOOTSTRAP_PASSWORD : random_password.authentik_bootstrap_password.result
+    AUTHENTIK_BOOTSTRAP_TOKEN : random_password.authentik_bootstrap_token.result
+    AUTHENTIK_SECRET_KEY : random_password.authentik_secret_key.result
+  })
+}
