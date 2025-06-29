@@ -20,10 +20,13 @@ repos:
           - "--autofix"
       - id: check-json
   - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.99.3
+    rev: v1.99.4
     hooks:
       - id: terraform_fmt
       - id: terraform_validate
+        args:
+          - --tf-init-args=-upgrade
+          - -hook-config=--retry-once-with-cleanup=true
       - id: terraform_tflint
         args:
           - --args=--disable-rule=terraform_unused_declarations
@@ -62,7 +65,7 @@ repos:
   #         - --args=--severity=HIGH
   #         - --args=--tf-exclude-downloaded-modules
   #         - --args=--skip-dirs "**/.terraform/**/*"
-  - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 40.48.4
-    hooks:
-      - id: renovate-config-validator
+#  - repo: https://github.com/renovatebot/pre-commit-hooks
+#    rev: 41.16.1
+#    hooks:
+#      - id: renovate-config-validator

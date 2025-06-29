@@ -1,8 +1,10 @@
 locals {
-  proxmox_config          = yamldecode(data.sops_file.global_secret.raw).proxmox
-  gitlab_config           = yamldecode(data.sops_file.global_secret.raw).gitlab
-  bitwarden_config        = yamldecode(data.sops_file.global_secret.raw).bitwarden
-  cloudflare_config       = yamldecode(data.sops_file.global_secret.raw).cloudflare
+  decoded_config          = yamldecode(data.sops_file.global_secret.raw)
+  proxmox_config          = local.decoded_config.proxmox
+  gitlab_config           = local.decoded_config.gitlab
+  bitwarden_config        = local.decoded_config.bitwarden
+  cloudflare_config       = local.decoded_config.cloudflare
+  authentik_config        = local.decoded_config.authentik
   talos_version           = var.talos_version
   talos_upgrade_version   = var.talos_upgrade_version != "" ? var.talos_upgrade_version : var.talos_version
   proxmox_network_cidr    = nonsensitive(split("/", local.proxmox_config.network)[1])
