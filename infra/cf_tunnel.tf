@@ -68,6 +68,33 @@ resource "random_password" "authentik_secret_key" {
 }
 
 
+resource "bitwarden_secret" "crunchy-pgo" {
+  note            = "authentik secrets"
+  project_id      = local.bitwarden_config.projectID
+  organization_id = local.bitwarden_config.organizationID
+
+  key = "crunchy-pgo"
+  value = jsonencode({
+    CRUNCHY_PGO_CIPHER_PASS = random_password.authentik_bootstrap_password.result
+  })
+}
+
+resource "bitwarden_secret" "postgresql-bucket" {
+  note            = "authentik secrets"
+  project_id      = local.bitwarden_config.projectID
+  organization_id = local.bitwarden_config.organizationID
+
+  key = "postgresql-bucket"
+  value = jsonencode({
+    AWS_ACCESS_KEY_ID     = local.hetzner_config.s3.acces_key_id
+    AWS_SECRET_ACCESS_KEY = local.hetzner_config.s3.access_key_secret
+    ENDPOINT              = local.hetzner_config.s3.endpoint
+    REGION                = local.hetzner_config.s3.region
+    BUCKET                = "kosh-k8s-pg-backup01"
+  })
+}
+
+
 resource "bitwarden_secret" "authentik" {
   note            = "authentik secrets"
   project_id      = local.bitwarden_config.projectID
@@ -75,9 +102,9 @@ resource "bitwarden_secret" "authentik" {
 
   key = "authentik"
   value = jsonencode({
-    AUTHENTIK_BOOTSTRAP_EMAIL : local.authentik_config.AUTHENTIK_BOOTSTRAP_EMAIL
-    AUTHENTIK_BOOTSTRAP_PASSWORD : random_password.authentik_bootstrap_password.result
-    AUTHENTIK_BOOTSTRAP_TOKEN : random_password.authentik_bootstrap_token.result
-    AUTHENTIK_SECRET_KEY : random_password.authentik_secret_key.result
+    AUTHENTIK_BOOTSTRAP_EMAIL    = local.authentik_config.AUTHENTIK_BOOTSTRAP_EMAIL
+    AUTHENTIK_BOOTSTRAP_PASSWORD = random_password.authentik_bootstrap_password.result
+    AUTHENTIK_BOOTSTRAP_TOKEN    = random_password.authentik_bootstrap_token.result
+    AUTHENTIK_SECRET_KEY         = random_password.authentik_secret_key.result
   })
 }

@@ -5,6 +5,7 @@ locals {
   bitwarden_config        = local.decoded_config.bitwarden
   cloudflare_config       = local.decoded_config.cloudflare
   authentik_config        = local.decoded_config.authentik
+  hetzner_config          = local.decoded_config.hetzner
   talos_version           = var.talos_version
   talos_upgrade_version   = var.talos_upgrade_version != "" ? var.talos_upgrade_version : var.talos_version
   proxmox_network_cidr    = nonsensitive(split("/", local.proxmox_config.network)[1])
