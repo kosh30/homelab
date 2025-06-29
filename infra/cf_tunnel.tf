@@ -69,7 +69,7 @@ resource "random_password" "authentik_secret_key" {
 
 
 resource "bitwarden_secret" "crunchy-pgo" {
-  note            = "authentik secrets"
+  note            = "crunchy-pgo secrets"
   project_id      = local.bitwarden_config.projectID
   organization_id = local.bitwarden_config.organizationID
 
@@ -88,7 +88,7 @@ resource "bitwarden_secret" "postgresql-bucket" {
   value = jsonencode({
     AWS_ACCESS_KEY_ID     = local.hetzner_config.s3.acces_key_id
     AWS_SECRET_ACCESS_KEY = local.hetzner_config.s3.access_key_secret
-    ENDPOINT              = local.hetzner_config.s3.endpoint
+    ENDPOINT              = "https://${local.hetzner_config.s3.address}"
     REGION                = local.hetzner_config.s3.region
     BUCKET                = "kosh-k8s-pg-backup01"
   })
