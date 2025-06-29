@@ -68,7 +68,7 @@ resource "proxmox_virtual_environment_vm" "workers" {
     cache        = "writethrough"
     discard      = "on"
     file_format  = "raw"
-    size         = 10
+    size         = 250
     file_id      = proxmox_virtual_environment_download_file.this["${each.value.proxmox_host_node}_${each.value.update == true ? local.update_image_id : local.image_id}"].id
   }
 
