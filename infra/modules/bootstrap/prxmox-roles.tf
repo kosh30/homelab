@@ -1,5 +1,5 @@
 resource "proxmox_virtual_environment_role" "csi-role" {
-  role_id = "${var.cluster_name}-csi-tole"
+  role_id = "${var.cluster_name}-csi-role"
   privileges = [
     "VM.Audit",
     "VM.Config.Disk",
