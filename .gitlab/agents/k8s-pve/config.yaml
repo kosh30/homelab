@@ -1,4 +1,0 @@
-# the GitLab Agent for Kubernetes configuration goes here ...
-ci_access:
-  projects:
-    - id: 70831490
