@@ -8,3 +8,4 @@ resources:
   - ./network
   - ./csi-proxmox
   - ./observability
+  - ./database
