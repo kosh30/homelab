@@ -28,6 +28,9 @@ resource "kubernetes_secret" "age" {
   data = {
     "keys.agekey" = file(pathexpand(var.sops_key_path))
   }
+  lifecycle {
+    ignore_changes = [metadata]
+  }
 }
 
 resource "kubernetes_secret" "git-auth" {
@@ -35,7 +38,9 @@ resource "kubernetes_secret" "git-auth" {
     name      = "git-token-auth"
     namespace = "flux-system"
   }
-
+  lifecycle {
+    ignore_changes = [metadata]
+  }
   data = {
     username = var.git_user
     password = var.git_password

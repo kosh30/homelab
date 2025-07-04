@@ -24,6 +24,6 @@ resource "kubernetes_secret" "cloudflare-tunnel-id-secret" {
   }
 
   lifecycle {
-    ignore_changes = []
+    ignore_changes = [metadata]
   }
 }
