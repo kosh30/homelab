@@ -43,6 +43,7 @@
 | Name | Type |
 |------|------|
 | [bitwarden_secret.authentik](https://registry.terraform.io/providers/maxlaverse/bitwarden/latest/docs/resources/secret) | resource |
+| [bitwarden_secret.authentikApplications](https://registry.terraform.io/providers/maxlaverse/bitwarden/latest/docs/resources/secret) | resource |
 | [bitwarden_secret.cloudflare](https://registry.terraform.io/providers/maxlaverse/bitwarden/latest/docs/resources/secret) | resource |
 | [bitwarden_secret.crunchy-pgo](https://registry.terraform.io/providers/maxlaverse/bitwarden/latest/docs/resources/secret) | resource |
 | [bitwarden_secret.flux](https://registry.terraform.io/providers/maxlaverse/bitwarden/latest/docs/resources/secret) | resource |
@@ -56,6 +57,8 @@
 | [random_password.authentik_secret_key](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
 | [random_string.github_token](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) | resource |
 | [random_string.gitlab_token](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) | resource |
+| [random_string.oauth](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) | resource |
+| [random_string.oauthIDs](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) | resource |
 | [tls_private_key.fluxcd](https://registry.terraform.io/providers/hashicorp/tls/latest/docs/resources/private_key) | resource |
 | [cloudflare_zero_trust_tunnel_cloudflared_token.this](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/zero_trust_tunnel_cloudflared_token) | data source |
 | [proxmox_virtual_environment_datastores.containers](https://registry.terraform.io/providers/bpg/proxmox/latest/docs/data-sources/virtual_environment_datastores) | data source |
@@ -76,6 +79,8 @@
 
 | Name | Description |
 |------|-------------|
+| <a name="output_authentic-secrets"></a> [authentic-secrets](#output\_authentic-secrets) | n/a |
+| <a name="output_bitwarden"></a> [bitwarden](#output\_bitwarden) | n/a |
 | <a name="output_cloudflare_token"></a> [cloudflare\_token](#output\_cloudflare\_token) | n/a |
 | <a name="output_cluster_nodes"></a> [cluster\_nodes](#output\_cluster\_nodes) | n/a |
 | <a name="output_cluster_storages"></a> [cluster\_storages](#output\_cluster\_storages) | n/a |

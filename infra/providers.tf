@@ -1,11 +1,10 @@
 terraform {
   required_version = ">= 1"
   backend "s3" {
-    bucket         = "serverless-svelte-kosh-deploys"
-    key            = "kosh-made/terraform.tfstate"
-    region         = "eu-central-1"
-    dynamodb_table = "terraform-state-lock"
-    encrypt        = true
+    bucket  = "serverless-svelte-kosh-deploys"
+    key     = "kosh-made/terraform.tfstate"
+    region  = "eu-central-1"
+    encrypt = true
   }
   required_providers {
     proxmox = {
