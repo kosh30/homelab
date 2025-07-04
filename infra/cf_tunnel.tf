@@ -108,3 +108,55 @@ resource "bitwarden_secret" "authentik" {
     AUTHENTIK_SECRET_KEY         = random_password.authentik_secret_key.result
   })
 }
+
+output "authentic-secrets" {
+  sensitive = true
+  value = {
+    AUTHENTIK_BOOTSTRAP_EMAIL    = local.authentik_config.AUTHENTIK_BOOTSTRAP_EMAIL
+    AUTHENTIK_BOOTSTRAP_PASSWORD = random_password.authentik_bootstrap_password.result
+    AUTHENTIK_BOOTSTRAP_TOKEN    = random_password.authentik_bootstrap_token.result
+    AUTHENTIK_SECRET_KEY         = random_password.authentik_secret_key.result
+  }
+}
+
+locals {
+  oauth_apps = [
+    # "dashbrr",
+    "grafana",
+    # "headlamp",
+    # "kyoo",
+    # "lubelogger",
+    "open-webui",
+    # "paperless",
+    # "portainer"
+  ]
+}
+resource "random_string" "oauthIDs" {
+  count   = length(local.oauth_apps)
+  length  = 40
+  special = false
+  upper   = true
+  lower   = true
+  numeric = true
+}
+
+resource "random_string" "oauth" {
+  count   = length(local.oauth_apps)
+  length  = 128
+  special = false
+  upper   = true
+  lower   = true
+  numeric = true
+}
+
+locals {
+  app_ids     = { for i, s in local.oauth_apps : "${upper(replace(s, "-", "_"))}_CLIENT_ID" => random_string.oauthIDs[i].result }
+  app_secrets = { for i, s in local.oauth_apps : "${upper(replace(s, "-", "_"))}_CLIENT_SECRET" => random_string.oauth[i].result }
+}
+resource "bitwarden_secret" "authentikApplications" {
+  note            = "$ authentik secrets"
+  project_id      = local.bitwarden_config.projectID
+  organization_id = local.bitwarden_config.organizationID
+  key             = "authentikApps"
+  value           = jsonencode(merge(local.app_ids, local.app_secrets))
+}

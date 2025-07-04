@@ -81,5 +81,14 @@ output "vm_node_assignments" {
 }
 
 output "cloudflare_token" {
-  value = data.cloudflare_zero_trust_tunnel_cloudflared_token.this.token
+  sensitive = true
+  value     = data.cloudflare_zero_trust_tunnel_cloudflared_token.this.token
+}
+
+output "bitwarden" {
+  sensitive = true
+  value = {
+    token          = local.bitwarden_config.token,
+    organizationID = local.bitwarden_config.organizationID
+  }
 }
