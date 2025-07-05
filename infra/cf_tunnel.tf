@@ -160,3 +160,11 @@ resource "bitwarden_secret" "authentikApplications" {
   key             = "authentikApps"
   value           = jsonencode(merge(local.app_ids, local.app_secrets))
 }
+
+resource "bitwarden_secret" "searxng" {
+  note            = "searxng secrets"
+  project_id      = local.bitwarden_config.projectID
+  organization_id = local.bitwarden_config.organizationID
+  key             = "searxng"
+  value           = jsonencode({ searxng_secret_key : random_password.authentik_secret_key.result })
+}
