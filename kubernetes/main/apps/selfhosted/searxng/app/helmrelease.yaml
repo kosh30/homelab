@@ -75,7 +75,9 @@ spec:
 
     route:
       app:
-        hostnames: ["{{ .Release.Name }}.kosh.casa"]
+        hostnames:
+          - "{{ .Release.Name }}.kosh.casa"
+          - "${GATUS_SUBDOMAIN:=${APP}}.kosh.casa"
         parentRefs:
           - name: external
             namespace: kube-system
