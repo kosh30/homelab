@@ -46,7 +46,7 @@ spec:
     vmsingle:
       spec:
         # -- Data retention period. Possible units character: h(ours), d(ays), w(eeks), y(ears), if no unit character specified - month. The minimum retention period is 24h. See these [docs](https://docs.victoriametrics.com/single-server-victoriametrics/#retention)
-        retentionPeriod: "1y"
+        retentionPeriod: "7w"
         replicaCount: 1
         extraArgs:
           maxLabelsPerTimeseries: "50"
@@ -58,10 +58,10 @@ spec:
               storage: 200Gi
         resources:
           limits:
-            memory: 6Gi
+            memory: 3Gi
           requests:
             cpu: 500m
-            memory: 2Gi
+            memory: 1Gi
 
     alertmanager:
       spec:
@@ -238,17 +238,17 @@ spec:
       enabled: false
 
     additionalVictoriaMetricsMap:
-      dockerhub-rules:
-        create: true
-        groups:
-          - name: dockerhub
-            rules:
-              - alert: DockerhubRateLimitRisk
-                annotations:
-                  summary: Kubernetes cluster Dockerhub rate limit risk
-                expr: count(time() - container_last_seen{image=~"(docker.io).*",container!=""} < 30) > 100
-                labels:
-                  severity: critical
+#      dockerhub-rules:
+#        create: true
+#        groups:
+#          - name: dockerhub
+#            rules:
+#              - alert: DockerhubRateLimitRisk
+#                annotations:
+#                  summary: Kubernetes cluster Dockerhub rate limit risk
+#                expr: count(time() - container_last_seen{image=~"(docker.io).*",container!=""} < 30) > 100
+#                labels:
+#                  severity: critical
       oom-rules:
         create: true
         groups:
