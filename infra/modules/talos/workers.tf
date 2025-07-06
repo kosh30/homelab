@@ -45,12 +45,19 @@ resource "proxmox_virtual_environment_vm" "workers" {
   }
 
   cpu {
-    cores = each.value.cpu
-    type  = "host"
+    cores    = each.value.cpu
+    type     = "host"
+    affinity = "2,3,4,5,6,7"
   }
 
   memory {
     dedicated = each.value.ram_dedicated
+  }
+
+  startup {
+    down_delay = -1
+    order      = 2
+    up_delay   = 30
   }
 
   network_device {

@@ -45,8 +45,9 @@ resource "proxmox_virtual_environment_vm" "controllplanes" {
   }
 
   cpu {
-    cores = each.value.cpu
-    type  = "host"
+    cores    = each.value.cpu
+    type     = "host"
+    affinity = "0,1"
   }
 
   memory {
@@ -76,6 +77,11 @@ resource "proxmox_virtual_environment_vm" "controllplanes" {
 
   operating_system {
     type = "l26" # Linux Kernel 2.6 - 6.X.
+  }
+  startup {
+    down_delay = -1
+    order      = 1
+    up_delay   = -1
   }
 
   initialization {
