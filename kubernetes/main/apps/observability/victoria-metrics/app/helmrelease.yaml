@@ -18,25 +18,8 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    fullnameOverride: stack
     victoria-metrics-operator:
-      enabled: true
-      serviceMonitor:
-        enabled: true
-      operator:
-        # -- By default, operator converts prometheus-operator objects.
-        disable_prometheus_converter: false
-#    victoria-metrics-operator:
-#      env:
-#        - name: VM_VMALERTDEFAULT_CONFIGRELOADERCPU
-#          value: 0
-#        - name: VM_VMAGENTDEFAULT_CONFIGRELOADERCPU
-#          value: 0
-#        - name: VM_VMALERTMANAGER_CONFIGRELOADERCPU
-#          value: 0
-#      operator:
-#        enable_converter_ownership: true # Required to allow VM to remove VM rules it imports if a prometheus rule is deleted
-
+      enabled: false
     defaultDashboards:
       enabled: false
 
