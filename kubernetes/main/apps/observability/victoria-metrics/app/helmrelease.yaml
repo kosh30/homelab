@@ -41,6 +41,7 @@ spec:
         extraArgs:
           maxLabelsPerTimeseries: "50"
         storage:
+          storageClassName: "proxmox-data"
           accessModes:
             - ReadWriteOnce
           resources:
