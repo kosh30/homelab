@@ -8,4 +8,4 @@ components:
 resources:
   - ./gatus/ks.yaml
   - ./victoria-logs/ks.yaml
-  - ./victoria-metrics/ks.yaml
+#  - ./victoria-metrics/ks.yaml
