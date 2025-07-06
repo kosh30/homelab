@@ -18,7 +18,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    fullnameOverride: stack
+#    fullnameOverride: stack
     victoria-metrics-operator:
       env:
         - name: VM_VMALERTDEFAULT_CONFIGRELOADERCPU
