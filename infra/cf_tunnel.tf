@@ -24,6 +24,25 @@ resource "bitwarden_secret" "cloudflare" {
   })
 }
 
+resource "kubernetes_secret" "cloudflare-tunnel-secret" {
+  depends_on = [module.flux-bootstrap, bitwarden_secret.cloudflare]
+  metadata {
+    name      = "cloudflare-tunnel-secret"
+    namespace = "network"
+  }
+  data = {
+    CLOUDFLARE_TUNNEL_ID = cloudflare_zero_trust_tunnel_cloudflared.this.id
+    TUNNEL_TOKEN         = data.cloudflare_zero_trust_tunnel_cloudflared_token.this.token
+  }
+
+  lifecycle {
+    ignore_changes = [
+      metadata,
+      data
+    ]
+  }
+}
+
 resource "random_string" "github_token" {
   length  = 41
   numeric = true

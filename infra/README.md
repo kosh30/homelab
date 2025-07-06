@@ -24,6 +24,7 @@
 |------|---------|
 | <a name="provider_bitwarden"></a> [bitwarden](#provider\_bitwarden) | 0.14.0 |
 | <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | 5.6.0 |
+| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.37.1 |
 | <a name="provider_local"></a> [local](#provider\_local) | 2.5.3 |
 | <a name="provider_proxmox"></a> [proxmox](#provider\_proxmox) | 0.78.2 |
 | <a name="provider_random"></a> [random](#provider\_random) | 3.7.2 |
@@ -50,6 +51,7 @@
 | [bitwarden_secret.postgresql-bucket](https://registry.terraform.io/providers/maxlaverse/bitwarden/latest/docs/resources/secret) | resource |
 | [bitwarden_secret.searxng](https://registry.terraform.io/providers/maxlaverse/bitwarden/latest/docs/resources/secret) | resource |
 | [cloudflare_zero_trust_tunnel_cloudflared.this](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/zero_trust_tunnel_cloudflared) | resource |
+| [kubernetes_secret.cloudflare-tunnel-secret](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/secret) | resource |
 | [local_file.bgb_config](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
 | [local_sensitive_file.kubeconfig](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/sensitive_file) | resource |
 | [local_sensitive_file.talosconfig](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/sensitive_file) | resource |

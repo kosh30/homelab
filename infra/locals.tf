@@ -17,7 +17,7 @@ locals {
 
   controllers = {
     "ctrl-001" = {
-      cpu           = 1
+      cpu           = 2
       ram_dedicated = 3072
     }
     # "ctrl-002" = {
