@@ -63,19 +63,19 @@ spec:
           group_by: ["alertname", "job"]
           group_interval: 10m
           group_wait: 1m
-          receiver: pushover
+          receiver: "null"
           repeat_interval: 12h
           routes:
             - receiver: "null"
               matchers:
                 - alertname=InfoInhibitor
-            - receiver: heartbeat
+            - receiver: "null"
               group_interval: 15s
               group_wait: 0s
               repeat_interval: 5m
               matchers:
                 - alertname=Watchdog
-            - receiver: pushover
+            - receiver: "null"
               matchers:
                 - severity=~"warning|critical"
         inhibit_rules:
