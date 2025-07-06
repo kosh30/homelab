@@ -19,10 +19,9 @@ spec:
     keepHistory: false
   values:
     victoria-metrics-operator:
-      enabled: false
+      enabled: true
     defaultDashboards:
       enabled: false
-
     defaultRules:
       rules:
         groups:
