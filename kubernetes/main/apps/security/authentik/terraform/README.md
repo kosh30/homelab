@@ -30,42 +30,33 @@
 | [authentik_brand.default](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/brand) | resource |
 | [authentik_brand.home](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/brand) | resource |
 | [authentik_flow.authentication](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/flow) | resource |
-| [authentik_flow.enrollment-invitation](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/flow) | resource |
-| [authentik_flow.invalidation](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/flow) | resource |
-| [authentik_flow.provider-authorization-implicit-consent](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/flow) | resource |
 | [authentik_flow.recovery](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/flow) | resource |
-| [authentik_flow.user-settings](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/flow) | resource |
-| [authentik_flow_stage_binding.authentication-flow-binding-00](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/flow_stage_binding) | resource |
-| [authentik_flow_stage_binding.authentication-flow-binding-10](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/flow_stage_binding) | resource |
-| [authentik_flow_stage_binding.authentication-flow-binding-100](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/flow_stage_binding) | resource |
-| [authentik_flow_stage_binding.enrollment-invitation-flow-binding-00](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/flow_stage_binding) | resource |
-| [authentik_flow_stage_binding.enrollment-invitation-flow-binding-10](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/flow_stage_binding) | resource |
-| [authentik_flow_stage_binding.enrollment-invitation-flow-binding-20](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/flow_stage_binding) | resource |
-| [authentik_flow_stage_binding.enrollment-invitation-flow-binding-30](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/flow_stage_binding) | resource |
-| [authentik_flow_stage_binding.invalidation-flow-binding-00](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/flow_stage_binding) | resource |
+| [authentik_flow_stage_binding.authentication-identification](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/flow_stage_binding) | resource |
+| [authentik_flow_stage_binding.authentication-login](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/flow_stage_binding) | resource |
+| [authentik_flow_stage_binding.authentication-mfa-validation](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/flow_stage_binding) | resource |
 | [authentik_flow_stage_binding.recovery-flow-binding-00](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/flow_stage_binding) | resource |
 | [authentik_flow_stage_binding.recovery-flow-binding-10](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/flow_stage_binding) | resource |
 | [authentik_flow_stage_binding.recovery-flow-binding-20](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/flow_stage_binding) | resource |
 | [authentik_flow_stage_binding.recovery-flow-binding-30](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/flow_stage_binding) | resource |
-| [authentik_flow_stage_binding.user-settings-flow-binding-100](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/flow_stage_binding) | resource |
-| [authentik_flow_stage_binding.user-settings-flow-binding-20](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/flow_stage_binding) | resource |
+| [authentik_group.admins](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/group) | resource |
 | [authentik_group.default](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/group) | resource |
+| [authentik_group.forgejo](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/group) | resource |
 | [authentik_group.grafana_admin](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/group) | resource |
+| [authentik_group.infra](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/group) | resource |
+| [authentik_group.miniflux](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/group) | resource |
+| [authentik_group.nextcloud](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/group) | resource |
+| [authentik_group.users](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/group) | resource |
+| [authentik_group.vikunja](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/group) | resource |
 | [authentik_policy_binding.application_policy_binding](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/policy_binding) | resource |
 | [authentik_policy_expression.user-settings-authorization](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/policy_expression) | resource |
 | [authentik_policy_password.password-complexity](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/policy_password) | resource |
 | [authentik_provider_oauth2.oauth2](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/provider_oauth2) | resource |
 | [authentik_service_connection_kubernetes.local](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/service_connection_kubernetes) | resource |
-| [authentik_source_oauth.discord](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/source_oauth) | resource |
-| [authentik_source_oauth.gitlab](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/source_oauth) | resource |
 | [authentik_stage_authenticator_validate.authentication-mfa-validation](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/stage_authenticator_validate) | resource |
 | [authentik_stage_email.recovery-email](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/stage_email) | resource |
+| [authentik_stage_identification.authentication-identification](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/stage_identification) | resource |
 | [authentik_stage_identification.recovery-identification](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/stage_identification) | resource |
-| [authentik_stage_invitation.enrollment-invitation](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/stage_invitation) | resource |
-| [authentik_stage_password.authentication-password](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/stage_password) | resource |
 | [authentik_stage_prompt.password-change-prompt](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/stage_prompt) | resource |
-| [authentik_stage_prompt.source-enrollment-prompt](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/stage_prompt) | resource |
-| [authentik_stage_prompt.user-settings](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/stage_prompt) | resource |
 | [authentik_stage_prompt_field.email](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/stage_prompt_field) | resource |
 | [authentik_stage_prompt_field.locale](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/stage_prompt_field) | resource |
 | [authentik_stage_prompt_field.name](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/stage_prompt_field) | resource |
@@ -73,19 +64,16 @@
 | [authentik_stage_prompt_field.password-repeat](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/stage_prompt_field) | resource |
 | [authentik_stage_prompt_field.username](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/stage_prompt_field) | resource |
 | [authentik_stage_user_login.authentication-login](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/stage_user_login) | resource |
-| [authentik_stage_user_login.source-enrollment-login](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/stage_user_login) | resource |
-| [authentik_stage_user_logout.invalidation-logout](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/stage_user_logout) | resource |
-| [authentik_stage_user_write.enrollment-user-write](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/stage_user_write) | resource |
 | [authentik_stage_user_write.password-change-write](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/stage_user_write) | resource |
-| [authentik_stage_user_write.user-settings-write](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/resources/stage_user_write) | resource |
 | [authentik_brand.authentik-default](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/data-sources/brand) | data source |
 | [authentik_certificate_key_pair.generated](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/data-sources/certificate_key_pair) | data source |
+| [authentik_flow.default-authorization](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/data-sources/flow) | data source |
 | [authentik_flow.default-brand-authentication](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/data-sources/flow) | data source |
 | [authentik_flow.default-brand-invalidation](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/data-sources/flow) | data source |
 | [authentik_flow.default-brand-user-settings](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/data-sources/flow) | data source |
-| [authentik_flow.default-provider-invalidation-flow](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/data-sources/flow) | data source |
-| [authentik_flow.default-source-authentication](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/data-sources/flow) | data source |
-| [authentik_flow.default-source-enrollment](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/data-sources/flow) | data source |
+| [authentik_flow.default-invalidation](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/data-sources/flow) | data source |
+| [authentik_flow.default-provider-invalidation](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/data-sources/flow) | data source |
+| [authentik_flow.default-user-settings](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/data-sources/flow) | data source |
 | [authentik_group.admins](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/data-sources/group) | data source |
 | [authentik_property_mapping_provider_saml.email](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/data-sources/property_mapping_provider_saml) | data source |
 | [authentik_property_mapping_provider_saml.groups](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/data-sources/property_mapping_provider_saml) | data source |
@@ -96,6 +84,7 @@
 | [authentik_property_mapping_provider_scope.oauth2](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/data-sources/property_mapping_provider_scope) | data source |
 | [authentik_property_mapping_provider_scope.openid](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/data-sources/property_mapping_provider_scope) | data source |
 | [authentik_property_mapping_provider_scope.profile](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/data-sources/property_mapping_provider_scope) | data source |
+| [authentik_stage.default-authentication-password](https://registry.terraform.io/providers/goauthentik/authentik/2025.6.0/docs/data-sources/stage) | data source |
 | [terraform_remote_state.talos](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/data-sources/remote_state) | data source |
 
 ## Inputs
