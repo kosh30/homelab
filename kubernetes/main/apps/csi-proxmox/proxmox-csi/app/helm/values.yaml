@@ -15,4 +15,6 @@ storageClass:
     storage: local-zfs
     reclaimPolicy: Delete
     fstype: xfs
+    annotations:
+      storageclass.kubernetes.io/is-default-class: "true"
 existingConfigSecret: proxmox-csi-plugin
