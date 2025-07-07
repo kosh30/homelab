@@ -14,7 +14,7 @@ spec:
   hostnames: ["vm.kosh.casa"]
   parentRefs:
     - name: internal
-      namespace: networking
+      namespace: kube-system
       sectionName: https
   rules:
     - backendRefs:
@@ -36,7 +36,7 @@ spec:
   hostnames: ["am.kosh.casa"]
   parentRefs:
     - name: internal
-      namespace: networking
+      namespace: kube-system
       sectionName: https
   rules:
     - backendRefs:
