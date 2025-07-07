@@ -3,6 +3,7 @@ cluster:
   coreDNS:
     disabled: true
   apiServer:
+    disablePodSecurityPolicy: true
     certSANs:
       - ${cluster_endpoint_ip}
       - ${cluster_endpoint_hostname}
