@@ -105,7 +105,6 @@ dashboardProviders:
         editable: true
         options:
           path: /var/lib/grafana/dashboards/victoria-metrics
-
 dashboards:
   default:
     cloudflared:
