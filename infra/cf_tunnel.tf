@@ -187,3 +187,14 @@ resource "bitwarden_secret" "searxng" {
   key             = "searxng"
   value           = jsonencode({ searxng_secret_key : random_password.authentik_secret_key.result })
 }
+
+resource "bitwarden_secret" "grafana" {
+  note            = "grafana secrets"
+  project_id      = local.bitwarden_config.projectID
+  organization_id = local.bitwarden_config.organizationID
+  key             = "searxng"
+  value = jsonencode({
+    GRAFANA_ADMIN_USERNAME : "admin"
+    GRAFANA_ADMIN_PASSWORD : random_password.authentik_secret_key.result
+  })
+}
