@@ -77,7 +77,6 @@ spec:
             type: victoriametrics-logs-datasource
             access: proxy
             url: http://victoria-logs-server.observability.svc.cluster.local:9428
-
     dashboardProviders:
       dashboardproviders.yaml:
         apiVersion: 1
@@ -114,14 +113,6 @@ spec:
             editable: true
             options:
               path: /var/lib/grafana/dashboards/unifi
-          #      - name: media
-          #        orgId: 1
-          #        folder: Media
-          #        type: file
-          #        disableDeletion: false
-          #        editable: true
-          #        options:
-          #          path: /var/lib/grafana/dashboards/media
           - name: envoy
             orgId: 1
             folder: Envoy
@@ -255,47 +246,34 @@ spec:
         gnetId: 7845
         revision: 4
         datasource: Prometheus
-        envoy:
-          envoy-clusters:
-            url: https://raw.githubusercontent.com/envoyproxy/gateway/refs/heads/main/charts/gateway-addons-helm/dashboards/envoy-clusters.json
-            datasource: Prometheus
-          envoy-gateway-global:
-            url: https://raw.githubusercontent.com/envoyproxy/gateway/refs/heads/main/charts/gateway-addons-helm/dashboards/envoy-gateway-global.json
-            datasource: Prometheus
-          envoy-proxy-global:
-            url: https://raw.githubusercontent.com/envoyproxy/gateway/refs/heads/main/charts/gateway-addons-helm/dashboards/envoy-proxy-global.json
-            datasource: Prometheus
-          global-ratelimit:
-            url: https://raw.githubusercontent.com/envoyproxy/gateway/refs/heads/main/charts/gateway-addons-helm/dashboards/global-ratelimit.json
-            datasource: Prometheus
-          victoria-metrics:
-            backupmanager:
-              url: https://raw.githubusercontent.com/VictoriaMetrics/VictoriaMetrics/refs/heads/master/dashboards/backupmanager.json
-              datasource: Prometheus
-            clusterbytenant:
-              url: https://raw.githubusercontent.com/VictoriaMetrics/VictoriaMetrics/refs/heads/master/dashboards/clusterbytenant.json
-              datasource: Prometheus
-            operator:
-              url: https://raw.githubusercontent.com/VictoriaMetrics/VictoriaMetrics/refs/heads/master/dashboards/operator.json
-              datasource: Prometheus
-            victorialogs:
-              url: https://raw.githubusercontent.com/VictoriaMetrics/VictoriaMetrics/refs/heads/master/dashboards/victorialogs.json
-              datasource: Prometheus
-            victoriametrics-cluster:
-              url: https://raw.githubusercontent.com/VictoriaMetrics/VictoriaMetrics/refs/heads/master/dashboards/victoriametrics-cluster.json
-              datasource: Prometheus
-            victoriametrics:
-              url: https://raw.githubusercontent.com/VictoriaMetrics/VictoriaMetrics/refs/heads/master/dashboards/victoriametrics.json
-              datasource: Prometheus
-            vmagent:
-              url: https://raw.githubusercontent.com/VictoriaMetrics/VictoriaMetrics/refs/heads/master/dashboards/vmagent.json
-              datasource: Prometheus
-            vmalert:
-              url: https://raw.githubusercontent.com/VictoriaMetrics/VictoriaMetrics/refs/heads/master/dashboards/vmalert.json
-              datasource: Prometheus
-            vmauth:
-              url: https://raw.githubusercontent.com/VictoriaMetrics/VictoriaMetrics/refs/heads/master/dashboards/vmauth.json
-              datasource: Prometheus
+      victoria-metrics:
+        backupmanager:
+          url: https://raw.githubusercontent.com/VictoriaMetrics/VictoriaMetrics/refs/heads/master/dashboards/backupmanager.json
+          datasource: Prometheus
+        clusterbytenant:
+          url: https://raw.githubusercontent.com/VictoriaMetrics/VictoriaMetrics/refs/heads/master/dashboards/clusterbytenant.json
+          datasource: Prometheus
+        operator:
+          url: https://raw.githubusercontent.com/VictoriaMetrics/VictoriaMetrics/refs/heads/master/dashboards/operator.json
+          datasource: Prometheus
+        victorialogs:
+          url: https://raw.githubusercontent.com/VictoriaMetrics/VictoriaMetrics/refs/heads/master/dashboards/victorialogs.json
+          datasource: Prometheus
+        victoriametrics-cluster:
+          url: https://raw.githubusercontent.com/VictoriaMetrics/VictoriaMetrics/refs/heads/master/dashboards/victoriametrics-cluster.json
+          datasource: Prometheus
+        victoriametrics:
+          url: https://raw.githubusercontent.com/VictoriaMetrics/VictoriaMetrics/refs/heads/master/dashboards/victoriametrics.json
+          datasource: Prometheus
+        vmagent:
+          url: https://raw.githubusercontent.com/VictoriaMetrics/VictoriaMetrics/refs/heads/master/dashboards/vmagent.json
+          datasource: Prometheus
+        vmalert:
+          url: https://raw.githubusercontent.com/VictoriaMetrics/VictoriaMetrics/refs/heads/master/dashboards/vmalert.json
+          datasource: Prometheus
+        vmauth:
+          url: https://raw.githubusercontent.com/VictoriaMetrics/VictoriaMetrics/refs/heads/master/dashboards/vmauth.json
+          datasource: Prometheus
       envoy:
         envoy-clusters:
           url: https://raw.githubusercontent.com/envoyproxy/gateway/refs/heads/main/charts/gateway-addons-helm/dashboards/envoy-clusters.json
