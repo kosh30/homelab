@@ -1,0 +1,11 @@
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  name: node-exporter
+spec:
+  staticConfigs:
+    - targets:
+        - lochnas.kosh.casa:9100
+        - pikvm.kosh.casa:9100
+  metricsPath: /metrics

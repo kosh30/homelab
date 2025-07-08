@@ -1,0 +1,86 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/siderolabs/talos/refs/heads/main/website/content/v1.10/schemas/config.schema.json
+cluster:
+  coreDNS:
+    disabled: true
+  apiServer:
+    disablePodSecurityPolicy: true
+    certSANs:
+      - ${cluster_endpoint_ip}
+      - ${cluster_endpoint_hostname}
+  network:
+    cni:
+      name: none
+    podSubnets:
+      - 10.244.0.0/16
+    serviceSubnets:
+      - 10.96.0.0/12
+  controllerManager:
+    extraArgs:
+      bind-address: 0.0.0.0
+  proxy:
+    disabled: true
+  scheduler:
+    extraArgs:
+      bind-address: 0.0.0.0
+    config:
+      apiVersion: kubescheduler.config.k8s.io/v1
+      kind: KubeSchedulerConfiguration
+      profiles:
+        - schedulerName: default-scheduler
+          plugins:
+            score:
+              disabled:
+                - name: ImageLocality
+          pluginConfig:
+            - name: PodTopologySpread
+              args:
+                defaultingType: List
+                defaultConstraints:
+                  - maxSkew: 1
+                    topologyKey: kubernetes.io/hostname
+                    whenUnsatisfiable: ScheduleAnyway
+machine:
+  kernel:
+    modules:
+      - name: zfs
+  nodeLabels:
+    node.cloudprovider.kubernetes.io/platform: nocloud
+    topology.kubernetes.io/region: ${region}
+    topology.kubernetes.io/zone: ${zone}
+  kubelet:
+#    clusterDNS:
+#      - 169.254.2.53
+#      - ${dns_server}
+    nodeIP:
+      validSubnets:
+        - ${proxmox_subnet}
+  network:
+    hostname: ${name}
+    interfaces:
+      - interface: dummy0
+        addresses:
+          - 169.254.2.53/32
+  install:
+    wipe: true
+  features:
+    rbac: true
+    stableHostname: true
+    apidCheckExtKeyUsage: true
+    hostDNS:
+      enabled: true
+  sysctls:
+    fs.inotify.max_user_watches: 1048576   # Watchdog
+    fs.inotify.max_user_instances: 8192    # Watchdog
+    net.core.default_qdisc: fq             # 10Gb/s
+    net.core.rmem_max: 67108864            # 10Gb/s | Cloudflared / QUIC
+    net.core.wmem_max: 67108864            # 10Gb/s | Cloudflared / QUIC
+    net.ipv4.tcp_congestion_control: bbr   # 10Gb/s
+    net.ipv4.tcp_fastopen: 3               # Send and accept data in the opening SYN packet
+    net.ipv4.tcp_mtu_probing: 1            # 10Gb/s | Jumbo frames
+    net.ipv4.tcp_rmem: 4096 87380 33554432 # 10Gb/s
+    net.ipv4.tcp_wmem: 4096 65536 33554432 # 10Gb/s
+    net.ipv4.tcp_window_scaling: 1         # 10Gb/s
+    sunrpc.tcp_slot_table_entries: 128     # 10Gb/s | NFS
+    sunrpc.tcp_max_slot_table_entries: 128 # 10Gb/s | NFS
+    user.max_user_namespaces: 11255        # User Namespaces
+    vm.nr_hugepages: 1024                  # PostgreSQL

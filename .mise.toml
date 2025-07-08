@@ -1,0 +1,15 @@
+[tools]
+kubectl = "latest"
+terraform = "latest"
+flux2 = "latest"
+talosctl = "latest"
+talhelper = "latest"
+ansible = "latest"
+"pipx:flux-local" = "latest"
+python = "3.13"
+node = "22"
+[env]
+AWS_DEFAULT_PROFILE = 'kosh-private'
+AWS_PROFILE = 'kosh-private'
+AWS_EB_PROFILE = 'kosh-private'
+AWS_PROFILE_REGION = 'eu-central-1'

@@ -1,0 +1,10 @@
+.idea
+.terraform
+node_modules
+*decrypted*
+*kubeconfig.yaml
+*talosconfig.yaml
+.local
+*.local
+*.local.*
+.bitwarden

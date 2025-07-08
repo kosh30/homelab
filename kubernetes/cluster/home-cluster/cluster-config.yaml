@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: flux-runtime-info
+  namespace: flux-system
+  labels:
+    toolkit.fluxcd.io/runtime: "true"
+data:
+  ENVIRONMENT: staging
+  CLUSTER_NAME: home-cluster
+  CLUSTER_DOMAIN: cluster.local
+  CLUSTER_EXTERNAL_DOMAIN: kosh.casa
