@@ -147,7 +147,7 @@ spec:
           gnetId: 15038
           revision: 3
           datasource: Prometheus
-        
+
         node-exporter-full:
           # renovate: depName="Node Exporter Full"
           gnetId: 1860
@@ -203,7 +203,7 @@ spec:
           # renovate: depName="UniFi-Poller: USW Insights - Prometheus"
           gnetId: 11312
           revision: 9
-          datasource: Prometheus        
+          datasource: Prometheus
       flux:
         flux-cluster:
           url: https://raw.githubusercontent.com/fluxcd/flux2-monitoring-example/main/monitoring/configs/dashboards/cluster.json
@@ -269,7 +269,7 @@ spec:
         global-ratelimit:
           url: https://raw.githubusercontent.com/envoyproxy/gateway/refs/heads/main/charts/gateway-addons-helm/dashboards/global-ratelimit.json
           datasource: Prometheus
-      
+
     sidecar:
       image:
         registry: ghcr.io

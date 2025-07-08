@@ -22,7 +22,7 @@ Modules order:
 | <a name="provider_http"></a> [http](#provider\_http) | 3.5.0 |
 | <a name="provider_kubectl"></a> [kubectl](#provider\_kubectl) | 2.1.3 |
 | <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.37.1 |
-| <a name="provider_proxmox"></a> [proxmox](#provider\_proxmox) | 0.78.2 |
+| <a name="provider_proxmox"></a> [proxmox](#provider\_proxmox) | 0.79.0 |
 
 ## Modules
 

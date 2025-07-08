@@ -19,7 +19,7 @@
 |------|---------|
 | <a name="provider_http"></a> [http](#provider\_http) | 3.5.0 |
 | <a name="provider_local"></a> [local](#provider\_local) | 2.5.3 |
-| <a name="provider_proxmox"></a> [proxmox](#provider\_proxmox) | 0.78.2 |
+| <a name="provider_proxmox"></a> [proxmox](#provider\_proxmox) | 0.79.0 |
 | <a name="provider_talos"></a> [talos](#provider\_talos) | 0.8.1 |
 | <a name="provider_time"></a> [time](#provider\_time) | 0.13.1 |
 
